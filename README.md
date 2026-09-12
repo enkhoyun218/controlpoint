@@ -7,7 +7,7 @@ II opinion could not rely on, detects segregation-of-duties conflicts in the
 access listing, and turns the result into a ranked remediation plan with a
 readiness-lift projection.
 
-**Live demo:** _not yet deployed — see [Deploying](#deploying)._
+**Live demo: [controlpoint.vercel.app](https://controlpoint.vercel.app)**
 
 ---
 
