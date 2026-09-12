@@ -308,9 +308,3 @@ export function buildConflictGraph(violations: SodViolation[]): {
     links: Array.from(links.values()),
   };
 }
-
-/** "create_vendor" -> "Create vendor" for headings and chart labels. */
-export function humanizePermission(permission: string): string {
-  const words = permission.replace(/_/g, " ");
-  return words.charAt(0).toUpperCase() + words.slice(1);
-}

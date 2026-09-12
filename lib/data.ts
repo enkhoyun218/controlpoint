@@ -171,10 +171,6 @@ export function formatDate(iso: string | null): string {
   });
 }
 
-export function formatPct(value: number, digits = 0): string {
-  return `${value.toFixed(digits)}%`;
-}
-
 export function daysBetween(from: Date, to: Date): number {
   return Math.round((to.getTime() - from.getTime()) / 86_400_000);
 }

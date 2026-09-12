@@ -80,7 +80,7 @@ export default function AdvisorBox({
             rows={3}
             maxLength={500}
             placeholder="e.g. What's blocking my Type II readiness?"
-            className="w-full resize-y rounded-lg border border-line bg-surface px-3 py-2.5 text-sm focus:border-accent focus:outline-none"
+            className="w-full resize-y rounded-lg border border-line bg-surface px-3 py-2.5 text-sm focus:border-accent"
           />
           <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
             <p className="num text-[11px] text-ink-muted">

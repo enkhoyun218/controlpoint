@@ -23,12 +23,7 @@
  */
 
 import type { Control, Criterion, RiskLevel } from "./data";
-import {
-  overallReadiness,
-  projectReadiness,
-  RISK_WEIGHT,
-  scoreControl,
-} from "./scoring";
+import { overallReadiness, projectReadiness, RISK_WEIGHT } from "./scoring";
 
 export type Effort = "low" | "medium" | "high";
 
@@ -214,7 +209,6 @@ export function rankGaps(
         supportingFinding: supporting,
       } satisfies Gap,
       rawPriority,
-      effectiveness: scoreControl(control).effectiveness,
     };
   });
 

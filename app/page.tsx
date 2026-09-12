@@ -20,7 +20,6 @@ import {
   getCompany,
   getControls,
   getCriteria,
-  getCriteriaCategories,
   getRoles,
   getSodRules,
   getUsers,
@@ -32,7 +31,6 @@ export default function DashboardPage() {
   const company = getCompany();
   const controls = getControls();
   const criteria = getCriteria();
-  const categories = getCriteriaCategories();
   const benchmark = getBenchmark();
 
   const readiness = computeReadiness(controls, criteria);

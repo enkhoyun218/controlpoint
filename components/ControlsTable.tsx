@@ -53,19 +53,17 @@ const RISK_ORDER: Record<RiskLevel, number> = { high: 0, medium: 1, low: 2 };
 const ALL = "all";
 
 function selectClass() {
-  return "rounded-lg border border-line bg-surface px-2.5 py-1.5 text-xs text-ink focus:border-accent focus:outline-none";
+  return "rounded-lg border border-line bg-surface px-2.5 py-1.5 text-xs text-ink focus:border-accent";
 }
 
 export default function ControlsTable({
   rows,
   categories,
   owners,
-  initialPreset,
 }: {
   rows: ControlRow[];
   categories: string[];
   owners: string[];
-  initialPreset?: Preset;
 }) {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<string>(ALL);
@@ -73,7 +71,7 @@ export default function ControlsTable({
   const [category, setCategory] = useState<string>(ALL);
   const [risk, setRisk] = useState<string>(ALL);
   const [owner, setOwner] = useState<string>(ALL);
-  const [preset, setPreset] = useState<Preset | null>(initialPreset ?? null);
+  const [preset, setPreset] = useState<Preset | null>(null);
   const [sortKey, setSortKey] = useState<SortKey>("id");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -187,7 +185,7 @@ export default function ControlsTable({
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search controls, owners, criteria"
             aria-label="Search controls"
-            className="w-64 rounded-lg border border-line bg-surface py-1.5 pr-2.5 pl-8 text-xs focus:border-accent focus:outline-none"
+            className="w-64 rounded-lg border border-line bg-surface py-1.5 pr-2.5 pl-8 text-xs focus:border-accent"
           />
         </label>
 
@@ -439,7 +437,7 @@ function Th({
   );
 }
 
-export type Preset = "evidenceGap" | "notImplemented" | "highRiskOpen";
+type Preset = "evidenceGap" | "notImplemented" | "highRiskOpen";
 
 const PRESETS: Record<
   Preset,
