@@ -26,8 +26,8 @@ export function readinessBand(value: number) {
   if (value >= 80)
     return { label: "Approaching audit-ready", color: "#047857", tone: "good" as const };
   if (value >= 60)
-    return { label: "Material gaps remain", color: "#b45309", tone: "warn" as const };
-  return { label: "Not close to examination", color: "#be123c", tone: "bad" as const };
+    return { label: "Material gaps to close", color: "#b45309", tone: "warn" as const };
+  return { label: "Not yet examination-ready", color: "#be123c", tone: "bad" as const };
 }
 
 export default function ReadinessGauge({

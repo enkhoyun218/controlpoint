@@ -52,7 +52,7 @@ const CADENCE_ADVERB: Record<string, string> = {
 };
 
 export const RANKING_SUMMARY =
-  "Priority = (readiness points the fix returns x inherent risk weight) ÷ effort, rescaled so the top item is 100. Dividing by effort is deliberate: it promotes cheap fixes that move the score, which is how a remediation plan actually gets sequenced.";
+  "Priority = (readiness points returned × inherent-risk weight) ÷ effort, rescaled so the top item is 100. Dividing by effort is deliberate — it pushes cheap fixes that move the score to the top, which is how a real remediation plan gets sequenced.";
 
 export type Gap = {
   controlId: string;
@@ -118,15 +118,15 @@ function whyItMatters(control: Control, intent: string): string {
   const criteria = control.criteria.join(", ");
 
   if (control.status === "not_implemented") {
-    return `Nothing currently addresses ${criteria}${intent ? ` — ${intent.toLowerCase().replace(/\.$/, "")}` : ""}. ${risk}, and a criterion with no working control behind it cannot be passed by testing something else. Expect this to surface as a deficiency rather than an exception.`;
+    return `Nothing addresses ${criteria} today${intent ? ` — ${intent.toLowerCase().replace(/\.$/, "")}` : ""}. ${risk}, and a criterion with no working control behind it can't be covered by testing something else. Expect this to land as a deficiency, not an exception.`;
   }
   if (control.status === "partial") {
-    return `The control exists but does not cover everything ${criteria} expects${intent ? `, which is that ${intent.toLowerCase().replace(/\.$/, "")}` : ""}. ${risk}. Partial coverage means the auditor tests the population and finds the part that was never in scope — that is an exception, not a pass.`;
+    return `The control exists but doesn't cover everything ${criteria} expects${intent ? ` — that ${intent.toLowerCase().replace(/\.$/, "")}` : ""}. ${risk}. Partial coverage means the auditor tests the full population and finds the part that was never in scope. That's an exception, not a pass.`;
   }
   if (control.evidence === "missing") {
-    return `The control appears to operate, but nothing is retained to show it. ${risk}, and for ${criteria} an untestable control is treated as one that did not operate: a Type II opinion rests on evidence across the period, not on management's word.`;
+    return `The control seems to run, but nothing is kept to show it. ${risk}, and for ${criteria} an untestable control is treated as one that didn't operate — a Type II opinion rests on evidence across the period, not management's word.`;
   }
-  return `The control operates, but the most recent ${control.evidenceType.toLowerCase()} predates the examination period. ${risk}. This is the most common Type II failure — the control is fine, the proof that it ran ${CADENCE_ADVERB[control.frequency] ?? "on schedule"} is not.`;
+  return `The control runs, but the evidence on hand — ${control.evidenceType.toLowerCase()} — predates the examination period. ${risk}. This is the most common Type II failure: the control is fine, the proof that it ran ${CADENCE_ADVERB[control.frequency] ?? "on schedule"} isn't.`;
 }
 
 function recommendedAction(control: Control): string {
@@ -136,15 +136,15 @@ function recommendedAction(control: Control): string {
       : `on its ${control.frequency} cadence`;
 
   if (control.status === "not_implemented") {
-    return `Design and stand up the control, assign it to ${control.owner} with a documented ${control.frequency} cadence, and retain ${control.evidenceType.toLowerCase()} from the first occurrence onward. Because there is no history, plan for a shortened observation window or accept that this criterion will not be covered in the first Type II.`;
+    return `Design and stand up the control, assign it to ${control.owner} on a documented ${control.frequency} cadence, and keep the ${control.evidenceType.toLowerCase()} from the first run onward. With no history, plan for a shortened observation window — or accept that this criterion won't be covered in the first Type II.`;
   }
   if (control.status === "partial") {
-    return `Extend the control to the full population it is meant to cover, have ${control.owner} confirm the scope in writing, and produce ${control.evidenceType.toLowerCase()} ${cadence} for every item in scope — not just the part already covered.`;
+    return `Extend the control to the full population it should cover, have ${control.owner} confirm the scope in writing, and produce the ${control.evidenceType.toLowerCase()} ${cadence} for every item in scope — not just the part already covered.`;
   }
   if (control.evidence === "missing") {
-    return `Start retaining ${control.evidenceType.toLowerCase()} ${cadence}, with ${control.owner} as the named reviewer, and back-fill whatever can be reconstructed for the period. Automate the capture if the control is system-driven so the evidence accumulates without anyone remembering to save it.`;
+    return `Start keeping the ${control.evidenceType.toLowerCase()} ${cadence}, with ${control.owner} as the named reviewer, and back-fill whatever you can reconstruct for the period. If the control is system-driven, automate the capture so evidence piles up without anyone remembering to save it.`;
   }
-  return `Re-perform the control and have ${control.owner} retain ${control.evidenceType.toLowerCase()} ${cadence} going forward. This is an evidence problem rather than a design problem, so the fix is retention discipline, not a new control.`;
+  return `From here on, re-perform the control and have ${control.owner} keep the ${control.evidenceType.toLowerCase()} ${cadence}. This is an evidence problem, not a design one — so the fix is retention discipline, not a new control.`;
 }
 
 /** Criterion whose coverage this control most influences — used as the headline criterion on the gap card. */
@@ -183,7 +183,7 @@ export function rankGaps(
 
     const supporting =
       options.sodViolationCount && control.criteria.includes(SOD_LINKED_CRITERION)
-        ? `The SoD analyzer currently finds ${options.sodViolationCount} access conflicts (${options.sodHighSeverityCount ?? 0} high severity) in the user listing. This is the control that should be catching them, so the conflicts are the evidence that it is not working.`
+        ? `The SoD analyzer currently finds ${options.sodViolationCount} access conflicts (${options.sodHighSeverityCount ?? 0} high severity) in the user listing. This is the control that should be catching them — so those conflicts are the proof it isn't working.`
         : undefined;
 
     return {

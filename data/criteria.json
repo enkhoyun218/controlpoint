@@ -61,7 +61,7 @@
       "id": "CC9",
       "name": "Risk Mitigation",
       "tsc": "Security",
-      "summary": "Business disruption and vendor risk.",
+      "summary": "Staying resilient to business disruptions and vendor failures.",
       "inScope": true
     },
     {

@@ -46,25 +46,17 @@ export default function ControlsPage() {
       <PageHeader
         eyebrow="Control register"
         title="The workpaper"
-        intro={
-          <>
-            Every control in scope, what it addresses, who owns it, how often it
-            runs, and when it was last evidenced. Rows are tinted when a control
-            is not fully implemented or its evidence would not support a Type II
-            opinion. Click any row for the control description and the evidence
-            an auditor would ask for.
-          </>
-        }
+        intro="Every in-scope control: what it covers, who owns it, how often it runs, and when it was last evidenced. Rows are tinted when a control isn't fully in place, or when its evidence wouldn't hold up in a Type II. Click any row for the control's description and the evidence an auditor would ask for."
       />
 
       <ControlsTable rows={rows} categories={categories} owners={owners} />
 
       <MethodNote>
-        Evidence age is measured against {formatDate(company.asOfDate)}, the
-        assessment date. A control is flagged when its last evidence is older
-        than the interval implied by its frequency — a continuous control needs
-        recent proof, an annual one does not. All {rows.length} controls and
-        their test results are synthetic.
+        Evidence age is measured against the assessment date,{" "}
+        {formatDate(company.asOfDate)}. A control gets flagged when its last
+        evidence is older than its cadence implies — a continuous control needs
+        fresh proof, an annual one doesn&apos;t. All {rows.length} controls and
+        their results are synthetic.
       </MethodNote>
     </>
   );

@@ -38,14 +38,7 @@ export default function RemediationPage() {
       <PageHeader
         eyebrow="Remediation"
         title="What to fix first"
-        intro={
-          <>
-            Every control that would not survive Type II testing today, ranked by
-            the readiness points the fix returns, weighted by inherent risk, and
-            divided by effort. {gaps.length} gaps, each with the reason it
-            matters and a concrete action — not a list of controls to &ldquo;review&rdquo;.
-          </>
-        }
+        intro={`Every control that wouldn't survive Type II testing today, ranked by the readiness points the fix returns, weighted by inherent risk, and divided by effort. ${gaps.length} gaps — each with why it matters and a concrete action, not a vague note to “review.”`}
       />
 
       <RemediationPlan
@@ -56,10 +49,10 @@ export default function RemediationPage() {
       />
 
       <p className="mt-6 text-[11px] leading-5 text-ink-muted">
-        Effort estimates are modeled from the shape of each gap, not from a real
-        engagement, and the projection is an arithmetic consequence of the
-        scoring formula rather than a prediction about audit outcomes. Closing
-        every gap here would not by itself produce a SOC 2 report.
+        Effort is modeled from the shape of each gap, not a real engagement, and
+        the projection is arithmetic from the scoring formula, not a prediction
+        of audit outcomes. Closing every gap here wouldn&apos;t, on its own,
+        produce a SOC 2 report.
       </p>
     </>
   );

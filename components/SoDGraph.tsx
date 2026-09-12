@@ -65,7 +65,7 @@ export default function SoDGraph({
         className="min-w-[720px]"
         style={{ height }}
         role="img"
-        aria-label={`Conflict graph: ${users.length} users connected to ${permissions.length} conflicting permissions`}
+        aria-label={`Conflict graph: ${users.length} users linked to ${permissions.length} conflicting permissions`}
       >
         <text x={USER_X} y={14} textAnchor="end" fontSize="10" fill="#8a93a2">
           USERS WITH CONFLICTS

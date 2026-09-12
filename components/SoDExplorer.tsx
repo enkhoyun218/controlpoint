@@ -47,7 +47,7 @@ export default function SoDExplorer({
     <div className="space-y-4">
       <Card
         title="Conflict graph"
-        subtitle="Each line is one person holding one half of a conflicting pair. A person connected to two permissions joined by a rule is a violation."
+        subtitle="Each line is one person holding one half of a conflicting pair. A person linked to two permissions joined by a rule is a violation."
       >
         <SoDGraph
           nodes={nodes}

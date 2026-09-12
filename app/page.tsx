@@ -58,14 +58,7 @@ export default function DashboardPage() {
       <PageHeader
         eyebrow="Readiness overview"
         title={`${company.name} — SOC 2 Type II readiness`}
-        intro={
-          <>
-            {company.description} This page estimates how much of the
-            examination {company.name} could support today, scored from{" "}
-            {controls.length} modeled controls across {criteria.length} criteria.
-            It is a readiness estimate, not an audit opinion.
-          </>
-        }
+        intro={`${company.description} Here's how much of a Type II examination ${company.name} could stand behind today, scored from ${controls.length} modeled controls across ${criteria.length} criteria. Treat it as a readiness estimate, not an audit opinion.`}
       />
 
       {/* Type II period framing — the whole score hangs off this window. */}
@@ -105,7 +98,7 @@ export default function DashboardPage() {
       <div className="grid gap-4 lg:grid-cols-3">
         <Card
           title="Estimated readiness"
-          subtitle="Share of in-scope criteria the evidence would currently support"
+          subtitle="How much of the in-scope criteria your evidence would support today"
           className="lg:row-span-2"
         >
           <ReadinessGauge
@@ -146,7 +139,7 @@ export default function DashboardPage() {
                 : "warn"
             }
             icon={<AlertTriangle className="h-4 w-4" />}
-            note={`High inherent risk and not both implemented and currently evidenced · peer median ${benchmark.medianOpenHighRiskGaps}`}
+            note={`High inherent risk, and not yet both implemented and currently evidenced · peer median ${benchmark.medianOpenHighRiskGaps}`}
             href="/remediation"
             linkLabel="See the remediation plan"
           />
@@ -155,12 +148,12 @@ export default function DashboardPage() {
             value={evidenceGaps}
             tone="bad"
             icon={<FileClock className="h-4 w-4" />}
-            note={`${readiness.counts.evidenceStale} stale, ${readiness.counts.evidenceMissing} missing — the classic Type II failure: the control exists but cannot be shown to have operated all period`}
+            note={`${readiness.counts.evidenceStale} stale, ${readiness.counts.evidenceMissing} missing — the classic Type II trap: the control runs, but you can't prove it ran all period`}
             href="/controls"
             linkLabel="Filter the register by evidence"
           />
           <KpiCard
-            label="Segregation of duties violations"
+            label="Segregation-of-duties violations"
             value={sod.totalViolations}
             tone="bad"
             icon={<Network className="h-4 w-4" />}
@@ -192,8 +185,11 @@ export default function DashboardPage() {
             CC1–CC9 are the Common Criteria that make up the mandatory Security
             category. PI1 and C1 are in scope because {company.name} makes
             processing and confidentiality commitments to merchants. Weakest
-            category: <span className="font-semibold text-ink">{weakest.id} — {categoryName(weakest.id)}</span> at{" "}
-            {weakest.coverage.toFixed(0)}%.
+            category right now:{" "}
+            <span className="font-semibold text-ink">
+              {weakest.id} — {categoryName(weakest.id)}
+            </span>
+            , at {weakest.coverage.toFixed(0)}%.
           </MethodNote>
         </Card>
       </div>
@@ -235,15 +231,14 @@ export default function DashboardPage() {
             />
           </dl>
           <MethodNote>
-            Peer figures are modeled reference points for a{" "}
-            {benchmark.sampleSize}-company illustrative set, not a survey of real
-            companies.
+            Peer figures are modeled reference points for an illustrative{" "}
+            {benchmark.sampleSize}-company set, not a survey of real companies.
           </MethodNote>
         </Card>
 
         <Card
-          title="Biggest drags on the score"
-          subtitle="Points of overall readiness each control would return if it were implemented with current evidence"
+          title="Biggest drags on your score"
+          subtitle="Readiness points each control would return if it were implemented and evidenced"
           className="lg:col-span-2"
           right={
             <Link
@@ -280,9 +275,9 @@ export default function DashboardPage() {
       </div>
 
       <p className="mt-6 text-[11px] leading-5 text-ink-muted">
-        All figures on this page are computed from synthetic data describing a
-        fictional company. Nothing here constitutes a SOC 2 examination, an
-        auditor&apos;s opinion, or advice about a real environment.
+        Every figure here is computed from synthetic data about a fictional
+        company. Nothing on this page is a SOC 2 examination, an auditor&apos;s
+        opinion, or advice about a real environment.
       </p>
     </>
   );

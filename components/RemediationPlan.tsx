@@ -35,7 +35,7 @@ export default function RemediationPlan({
     <>
       <Card
         title="Readiness projection"
-        subtitle="What closing the top-ranked gaps would return, re-scored through the same engine that produced the current number"
+        subtitle="What closing the top-ranked gaps returns, re-scored through the same engine that produced today's number"
         className="mb-5"
       >
         <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
@@ -149,9 +149,9 @@ export default function RemediationPlan({
                 : projection.to < peerReadiness
                   ? `, still short of the ${peerReadiness}% peer median.`
                   : "."}{" "}
-              The projection assumes each control ends up implemented with
-              evidence covering the period — which is the point: a fix that
-              cannot be evidenced does not move a Type II score.
+              It assumes each control ends up implemented and evidenced
+              across the period — which is the whole point: a fix you
+              can&apos;t evidence won&apos;t move a Type II score.
             </p>
           </div>
         </div>

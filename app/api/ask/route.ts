@@ -19,7 +19,7 @@ export async function POST(request: Request) {
   try {
     ({ question } = await request.json());
   } catch {
-    return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
   if (typeof question !== "string" || question.trim().length < 3) {
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
   }
   if (question.length > MAX_QUESTION_LENGTH) {
     return NextResponse.json(
-      { error: `Questions are limited to ${MAX_QUESTION_LENGTH} characters.` },
+      { error: `Questions are capped at ${MAX_QUESTION_LENGTH} characters.` },
       { status: 400 },
     );
   }
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       answer: offlineAnswer(),
       mode: "offline",
       notice:
-        "This deployment has no Anthropic API key configured, so the answer below is computed locally from the dataset rather than generated. The figures are the same ones the rest of the app uses.",
+        "This deployment has no Anthropic API key set, so the answer below is computed locally from the dataset rather than generated. The figures are the same ones the rest of the app uses.",
     });
   }
 
@@ -68,7 +68,7 @@ export async function POST(request: Request) {
       .trim();
 
     return NextResponse.json({
-      answer: answer || "No answer was returned. Try rephrasing the question.",
+      answer: answer || "No answer came back. Try rephrasing.",
       mode: "live",
       model: MODEL,
     });
@@ -79,7 +79,7 @@ export async function POST(request: Request) {
         answer: offlineAnswer(),
         mode: "offline",
         notice:
-          "The model call did not complete, so the answer below is computed locally from the same dataset instead.",
+          "The model call didn't complete, so the answer below is computed locally from the same dataset instead.",
       },
       { status: 200 },
     );

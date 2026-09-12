@@ -153,8 +153,8 @@ export default function CriteriaHeatmap({
               ))}
               {selected.controls.length === 0 ? (
                 <li className="px-4 py-6 text-sm text-ink-muted">
-                  No control is mapped to this criterion — an unaddressed
-                  criterion scores zero rather than being skipped.
+                  Nothing is mapped to this criterion yet — and an
+                  unaddressed criterion scores zero, not skipped.
                 </li>
               ) : null}
             </ul>

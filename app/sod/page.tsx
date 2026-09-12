@@ -34,17 +34,7 @@ export default function SodPage() {
       <PageHeader
         eyebrow="Segregation of duties"
         title="Access conflict analyzer"
-        intro={
-          <>
-            Segregation of duties is an IT general control test: no single person
-            should be able to complete a sensitive transaction end to end. This
-            expands every employee&apos;s roles into the permissions they
-            actually grant, then checks each person against a{" "}
-            {rules.length}-rule conflict matrix. Conflicts are evaluated on
-            combined access, because the dangerous pairs usually come from two
-            individually reasonable roles.
-          </>
-        }
+        intro={`Segregation of duties is an IT general control: no one person should be able to run a sensitive transaction end to end. This view expands every employee's roles into the permissions they really grant, then checks each person against a ${rules.length}-rule conflict matrix. Conflicts are judged on combined access, because the dangerous pairs usually come from two individually reasonable roles.`}
       />
 
       <div className="mb-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -60,7 +50,7 @@ export default function SodPage() {
           value={summary.bySeverity.high}
           tone="bad"
           icon={<ShieldAlert className="h-4 w-4" />}
-          note={`${summary.bySeverity.medium} medium severity conflicts as well`}
+          note={`Plus ${summary.bySeverity.medium} medium-severity conflicts`}
         />
         <KpiCard
           label="Users with a conflict"
@@ -84,52 +74,51 @@ export default function SodPage() {
         bodyClassName="p-5 text-sm leading-6 text-ink-muted"
       >
         <p>
-          Access conflicts are tested under{" "}
+          Access conflicts get tested under{" "}
           <span className="font-semibold text-ink">
             CC6 — Logical and Physical Access
           </span>
-          , where access is supposed to follow roles and least privilege, and
-          under{" "}
+          , where access is meant to follow roles and least privilege, and under{" "}
           <span className="font-semibold text-ink">
             CC5 — Control Activities
           </span>
-          , which expects duties to be divided so that no one person controls a
-          whole transaction. Where payments are involved they also touch{" "}
+          , which expects duties to be split so no one person controls a whole
+          transaction. Where payments are involved they also hit{" "}
           <span className="font-semibold text-ink">
             PI1 — Processing Integrity
           </span>
-          , because a self-approved payment is not an authorized one.
+          , because a self-approved payment was never really authorized.
         </p>
         <p className="mt-3">
-          A finding here is rarely about a dishonest employee. It is about a
-          control that cannot work: when one person can both create a payee and
-          release money to it, the approval step stops being a control at all,
-          and the company loses the ability to say the transaction was reviewed.
-          Auditors look for these because they are cheap to detect from an access
-          listing and expensive to explain after a loss. In a Type II, the
-          question is sharper still — not just whether the conflict exists today,
-          but whether it existed throughout the period.
+          A finding here usually isn&apos;t about a dishonest employee. It&apos;s
+          about a control that can&apos;t work: when one person can both create a
+          payee and release money to it, the approval step stops being a control,
+          and you lose the ability to say the transaction was reviewed. Auditors
+          look for these because they&apos;re cheap to spot in an access listing
+          and expensive to explain after a loss. In a Type II the bar is higher
+          still — not just whether the conflict exists today, but whether it
+          existed all period.
         </p>
         <p className="mt-3">
           {summary.usersWithConflicts} of {summary.usersReviewed} employees hold
           at least one conflicting pair, {summary.bySeverity.high} of the{" "}
           {summary.totalViolations} findings at high severity. Two related
-          controls in the register are already weak:{" "}
+          controls in your register are already weak:{" "}
           <span className="font-semibold text-ink">
             the SoD matrix is defined but not monitored
-          </span>{" "}
-          and{" "}
-          <span className="font-semibold text-ink">
-            quarterly user access reviews were not performed for the period
           </span>
-          . The conflicts below are the direct consequence.
+          , and{" "}
+          <span className="font-semibold text-ink">
+            quarterly access reviews weren&apos;t performed for the period
+          </span>
+          . The conflicts below are the direct result.
         </p>
       </Card>
 
       <div className="mb-5 grid gap-4 lg:grid-cols-2">
         <Card
           title="Conflicts by rule"
-          subtitle="Whether this is one bad role or a systemic design problem"
+          subtitle="Is this one bad role, or a systemic design problem?"
         >
           <ul className="space-y-2.5">
             {summary.byRule.map((rule) => {
@@ -163,7 +152,7 @@ export default function SodPage() {
 
         <Card
           title="Most conflicted individuals"
-          subtitle="Where remediation should start"
+          subtitle="Where to start remediation"
         >
           <ul className="divide-y divide-line">
             {summary.topOffenders.slice(0, 6).map((offender) => (
@@ -199,11 +188,11 @@ export default function SodPage() {
       />
 
       <MethodNote>
-        Method: effective permissions = the union of the permissions granted by
-        every role a user holds. A violation is recorded when a user holds both
+        Method: a user&apos;s effective permissions are the union of everything
+        their roles grant. A violation is logged when someone holds both
         permissions named in a conflict rule, and the granting roles are kept so
-        the finding can be traced back to a specific entitlement. Employees,
-        roles, and entitlements are synthetic; no real access listing was used.
+        the finding traces back to a specific entitlement. Employees, roles, and
+        entitlements are synthetic; no real access listing was used.
       </MethodNote>
     </>
   );

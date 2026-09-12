@@ -68,20 +68,12 @@ export default function CriteriaPage() {
       <PageHeader
         eyebrow="Trust Services Criteria"
         title="Criteria coverage and scoping"
-        intro={
-          <>
-            SOC 2 has five Trust Services Categories. Security — the Common
-            Criteria, CC1 through CC9 — is required in every examination; the
-            other four are added when a company makes those commitments to its
-            customers. Each cell below is one criterion, scored from the controls
-            mapped to it. Click one to see those controls.
-          </>
-        }
+        intro="SOC 2 rests on five Trust Services Categories. Security — the Common Criteria, CC1 through CC9 — is required in every examination; the other four come into scope when you make those commitments to customers. Each cell below is one criterion, scored from the controls mapped to it. Click one to see those controls."
       />
 
       <Card
         title="Scope of this examination"
-        subtitle="Scope is a management decision, and auditors read it first"
+        subtitle="Scope is management's call — and the first thing an auditor reads"
         className="mb-5"
       >
         <div className="grid gap-4 md:grid-cols-2">
@@ -173,9 +165,9 @@ export default function CriteriaPage() {
       <CriteriaHeatmap categories={blocks} />
 
       <p className="mt-6 text-[11px] leading-5 text-ink-muted">
-        Criteria intent is paraphrased in plain language. The AICPA&apos;s Trust
-        Services Criteria text is copyrighted and is not reproduced here. Scores
-        come from synthetic control data for a fictional company.
+        Criteria are paraphrased in plain language. The AICPA&apos;s Trust
+        Services Criteria text is copyrighted and isn&apos;t reproduced here.
+        Scores come from synthetic control data for a fictional company.
       </p>
     </>
   );

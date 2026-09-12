@@ -46,7 +46,7 @@ export default function AdvisorBox({
         });
       }
     } catch {
-      setError("Could not reach the advisor endpoint.");
+      setError("Couldn't reach the advisor.");
     } finally {
       setPending(false);
     }
@@ -56,7 +56,7 @@ export default function AdvisorBox({
     <div className="space-y-4">
       <Card
         title="Ask about this company's readiness"
-        subtitle="Answers are generated from the same computed snapshot the rest of the app uses — readiness, gaps, criteria coverage, and every SoD finding"
+        subtitle="Answers come from the same computed snapshot as the rest of the app — readiness, gaps, criteria coverage, and every SoD finding"
       >
         <form
           onSubmit={(e) => {
@@ -155,7 +155,7 @@ export default function AdvisorBox({
           </div>
           <p className="mt-4 border-t border-line pt-3 text-[11px] leading-5 text-ink-muted">
             Generated from synthetic data about a fictional company. Not audit
-            advice, not an opinion, and not a substitute for an examination by a
+            advice, not an opinion, and no substitute for an examination by a
             licensed firm.
           </p>
         </Card>

@@ -45,9 +45,9 @@ COMPANY = {
     "legalName": "NimbusPay, Inc.",
     "industry": "Payments SaaS",
     "description": (
-        "Card-not-present payment processing and payouts platform for "
-        "small and mid-sized merchants. Handles authorization, settlement, "
-        "and vendor payout flows on behalf of ~3,400 merchant customers."
+        "A card-not-present payments and payouts platform for small and "
+        "mid-sized merchants. Handles authorization, settlement, and vendor "
+        "payout flows for roughly 3,400 merchant customers."
     ),
     "headquarters": "San Francisco, CA",
     "employees": 118,
@@ -66,8 +66,8 @@ COMPANY = {
             "label": "Security (Common Criteria, CC1–CC9)",
             "required": True,
             "rationale": (
-                "Mandatory in every SOC 2 examination. The Common Criteria are "
-                "the baseline every other category builds on."
+                "Required in every SOC 2. The Common Criteria are the baseline "
+                "every other category builds on."
             ),
         },
         {
@@ -75,9 +75,9 @@ COMPANY = {
             "label": "Processing Integrity",
             "required": False,
             "rationale": (
-                "Merchants are told payments are processed completely, "
-                "accurately, and only once. That is a processing commitment, "
-                "so the category is in scope."
+                "Merchants are promised payments are processed completely, "
+                "accurately, and only once — a processing commitment, so it's "
+                "in scope."
             ),
         },
         {
@@ -95,34 +95,32 @@ COMPANY = {
             "code": "A",
             "label": "Availability",
             "rationale": (
-                "No contractual uptime commitment is made to merchants in the "
-                "current MSA, so management scoped Availability out for the "
-                "first examination."
+                "No contractual uptime commitment in the current MSA, so "
+                "management scoped Availability out of the first examination."
             ),
         },
         {
             "code": "P",
             "label": "Privacy",
             "rationale": (
-                "NimbusPay processes merchant and cardholder data as a service "
-                "provider rather than collecting personal information for its "
-                "own purposes; Privacy was scoped out and handled through "
-                "Confidentiality plus contractual terms."
+                "NimbusPay handles merchant and cardholder data as a service "
+                "provider, not for its own purposes — Privacy was scoped out "
+                "and covered through Confidentiality plus contract terms."
             ),
         },
     ],
     "scopingNote": (
-        "Scope is a management decision, not an auditor's. Security is always "
-        "required; the other four categories are added based on the promises "
-        "the company makes to its customers. Narrower scope means a cleaner "
-        "first report — and a visible gap if customers later ask for uptime or "
-        "privacy assurance."
+        "Security is always required; the other four categories are added "
+        "based on the commitments you make to customers. A tighter scope means "
+        "a cleaner first report — and a visible gap if customers later ask for "
+        "uptime or privacy assurance."
     ),
     "typeIiNote": (
-        "A Type I opinion covers control design at a single date. A Type II "
-        "covers operating effectiveness across the whole period, which is why "
-        "evidence that a control actually ran — every quarter, every deploy, "
-        "every termination — matters as much as the control existing."
+        "A Type I report looks at whether controls are designed appropriately "
+        "on a single day. A Type II asks whether they actually worked across "
+        "the whole period — which is why proof that a control ran (every "
+        "quarter, every deploy, every termination) matters as much as the "
+        "control existing."
     ),
     "subserviceOrganizations": [
         {
@@ -197,7 +195,7 @@ CATEGORIES = [
     ("CC6", "Logical and Physical Access", "Security", "Who can get to what: provisioning, least privilege, encryption, physical access."),
     ("CC7", "System Operations", "Security", "Running the system: vulnerability management, monitoring, incident response."),
     ("CC8", "Change Management", "Security", "Authorizing, testing, and approving changes before they reach production."),
-    ("CC9", "Risk Mitigation", "Security", "Business disruption and vendor risk."),
+    ("CC9", "Risk Mitigation", "Security", "Staying resilient to business disruptions and vendor failures."),
     ("PI1", "Processing Integrity", "Processing Integrity", "Processing is complete, valid, accurate, timely, and authorized."),
     ("C1", "Confidentiality", "Confidentiality", "Confidential information is protected in life and destroyed at end of retention."),
 ]

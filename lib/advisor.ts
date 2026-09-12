@@ -106,9 +106,9 @@ export function buildAdvisorContext(): AdvisorSnapshot {
 
 export const SUGGESTED_QUESTIONS = [
   "What's blocking my Type II readiness the most right now?",
-  "Which segregation of duties conflict is most urgent, and why?",
+  "Which segregation-of-duties conflict is most urgent, and why?",
   "If I only have six weeks, what should my team fix first?",
-  "Where is my change management weakest, and what would an auditor test?",
+  "Where is change management weakest, and what would an auditor test?",
 ];
 
 /**

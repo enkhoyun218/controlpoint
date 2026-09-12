@@ -344,7 +344,7 @@ export default function ControlsTable({
                           <span className="font-semibold text-ink">
                             Evidence an auditor would request:
                           </span>{" "}
-                          {row.evidenceType}. Expected no older than{" "}
+                          {row.evidenceType}. Should be no older than{" "}
                           <span className="num">
                             {row.expectedEvidenceIntervalDays}
                           </span>{" "}

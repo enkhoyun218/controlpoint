@@ -58,7 +58,7 @@ export const RISK_WEIGHT: Record<RiskLevel, number> = {
 };
 
 export const FORMULA_SUMMARY =
-  "Readiness = mean coverage of the in-scope criteria. A criterion's coverage is the risk-weighted average of its controls, where each control scores maturity (implemented 1.0 / partial 0.5 / none 0) multiplied by an evidence factor (current 1.0 / stale 0.6 / missing 0.3).";
+  "Readiness is the average coverage of your in-scope criteria. Each criterion's coverage is the risk-weighted average of its controls, where a control scores maturity (implemented 1.0 / partial 0.5 / none 0) times an evidence factor (current 1.0 / stale 0.6 / missing 0.3).";
 
 export type ControlScore = {
   maturity: number;

@@ -30,15 +30,7 @@ export default function AdvisorPage() {
       <PageHeader
         eyebrow="Ask the Advisor"
         title="Question the data"
-        intro={
-          <>
-            A Claude Haiku call grounded in this company&apos;s own numbers. It
-            is given a compact snapshot — readiness, per-criterion coverage,
-            every ranked gap, and every access conflict — and instructed to
-            answer only from that, cite the control or criterion behind each
-            claim, and say so when the data cannot answer the question.
-          </>
-        }
+        intro="A Claude Haiku call grounded in this company's own numbers. It gets a compact snapshot — readiness, per-criterion coverage, every ranked gap, and every access conflict — and is told to answer only from that, cite the control or criterion behind each claim, and admit when the data can't answer."
       />
 
       <div className="grid gap-4 lg:grid-cols-[1fr_300px]">
@@ -59,8 +51,8 @@ export default function AdvisorPage() {
             </dl>
             <p className="mt-4 border-t border-line pt-3 text-[11px] leading-5 text-ink-muted">
               The snapshot is built from the same scoring, ranking, and SoD
-              engines that render the other tabs, so an answer here cannot
-              contradict a number shown elsewhere in the app.
+              engines that render every other tab — so an answer here can&apos;t
+              contradict a number shown elsewhere.
             </p>
           </Card>
 
@@ -70,24 +62,24 @@ export default function AdvisorPage() {
                 <span className="font-semibold text-ink">
                   Answers only from the snapshot.
                 </span>{" "}
-                The model is told to say what is missing rather than guess.
+                The model is told to name what&apos;s missing rather than guess.
               </li>
               <li>
                 <span className="font-semibold text-ink">
                   No audit opinions.
                 </span>{" "}
-                It estimates readiness; it does not pass, fail, or attest.
+                It estimates readiness — it doesn&apos;t pass, fail, or attest.
               </li>
               <li>
                 <span className="font-semibold text-ink">
                   Degrades gracefully.
                 </span>{" "}
-                Without an API key the tab returns a locally computed summary
-                instead of an error, and labels it as such.
+                With no API key, the tab returns a locally computed summary
+                instead of an error, and says so.
               </li>
               <li>
                 <span className="font-semibold text-ink">Synthetic data.</span>{" "}
-                Every figure describes a company that does not exist.
+                Every figure describes a company that doesn&apos;t exist.
               </li>
             </ul>
           </Card>

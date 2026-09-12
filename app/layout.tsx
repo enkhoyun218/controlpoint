@@ -8,7 +8,7 @@ import { getCompany } from "@/lib/data";
 export const metadata: Metadata = {
   title: "ControlPoint — SOC 2 Type II readiness advisor",
   description:
-    "Educational concept: a SOC 2 Type II readiness assessment over a synthetic payments SaaS company — control coverage, evidence freshness, segregation-of-duties conflicts, and prioritized remediation.",
+    "An educational concept: a SOC 2 Type II readiness check over a fictional payments SaaS. See control coverage, evidence freshness, segregation-of-duties conflicts, and a prioritized fix list.",
 };
 
 export default function RootLayout({
