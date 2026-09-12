@@ -1,0 +1,12 @@
+{
+  "_note": "Illustrative peer figures for an educational concept. These are modeled reference points, not a survey of real companies.",
+  "peerGroup": "Payments and fintech SaaS, 50–250 employees, preparing a first SOC 2 Type II",
+  "sampleSize": 40,
+  "medianReadiness": 71,
+  "topQuartileReadiness": 84,
+  "medianOpenHighRiskGaps": 6,
+  "medianDaysSinceEvidence": 34,
+  "medianSodViolations": 5,
+  "medianControlsImplementedPct": 78,
+  "medianWeeksToAuditReady": 14
+}

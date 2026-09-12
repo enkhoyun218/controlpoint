@@ -1,0 +1,130 @@
+{
+  "_note": "Synthetic data for an educational SOC 2 readiness concept. Not a real assessment.",
+  "rules": [
+    {
+      "id": "SOD-01",
+      "permissionA": "create_vendor",
+      "permissionB": "approve_payment",
+      "severity": "high",
+      "title": "Vendor creation and payment approval",
+      "rationale": "One person can create a payee they control and then approve money moving to it. This is the classic fictitious-vendor fraud path and the reason vendor master maintenance is kept away from payment release.",
+      "mappedCriteria": [
+        "CC6.3",
+        "CC5.2",
+        "PI1.3"
+      ]
+    },
+    {
+      "id": "SOD-02",
+      "permissionA": "initiate_payment",
+      "permissionB": "approve_payment",
+      "severity": "high",
+      "title": "Payment initiation and approval",
+      "rationale": "Self-approval removes the second pair of eyes entirely — the person submitting the payment is the person releasing it, so no independent check on amount, payee, or validity ever happens.",
+      "mappedCriteria": [
+        "CC6.3",
+        "CC5.2",
+        "PI1.3"
+      ]
+    },
+    {
+      "id": "SOD-03",
+      "permissionA": "create_vendor",
+      "permissionB": "initiate_payment",
+      "severity": "high",
+      "title": "Vendor creation and payment initiation",
+      "rationale": "Even without approval rights, a single person able to add a payee and queue a payment to it controls both sides of the setup and relies entirely on the approver catching an unfamiliar vendor name.",
+      "mappedCriteria": [
+        "CC6.3",
+        "CC5.2"
+      ]
+    },
+    {
+      "id": "SOD-04",
+      "permissionA": "deploy_code",
+      "permissionB": "prod_db_write",
+      "severity": "high",
+      "title": "Production deployment and direct database write",
+      "rationale": "Someone who can both ship code and edit production data directly can make a change and then alter the records that would reveal it, defeating the change management trail.",
+      "mappedCriteria": [
+        "CC6.3",
+        "CC8.1",
+        "CC5.2"
+      ]
+    },
+    {
+      "id": "SOD-05",
+      "permissionA": "deploy_code",
+      "permissionB": "approve_code_review",
+      "severity": "high",
+      "title": "Self-approved production change",
+      "rationale": "Approving your own change and then deploying it means no independent review ever occurred, which is exactly what the change management criterion is designed to prevent.",
+      "mappedCriteria": [
+        "CC8.1",
+        "CC5.2"
+      ]
+    },
+    {
+      "id": "SOD-06",
+      "permissionA": "post_journal_entry",
+      "permissionB": "approve_journal_entry",
+      "severity": "high",
+      "title": "Journal entry posting and approval",
+      "rationale": "The person recording an entry should not be the person approving it; otherwise a misstatement can be both created and blessed by the same individual without detection.",
+      "mappedCriteria": [
+        "CC5.2",
+        "PI1.5"
+      ]
+    },
+    {
+      "id": "SOD-07",
+      "permissionA": "create_user",
+      "permissionB": "approve_access",
+      "severity": "medium",
+      "title": "Account creation and access approval",
+      "rationale": "Holding both lets a person grant themselves or a colleague entitlements and sign off on the request, so the approval record proves nothing.",
+      "mappedCriteria": [
+        "CC6.1",
+        "CC6.2",
+        "CC5.2"
+      ]
+    },
+    {
+      "id": "SOD-08",
+      "permissionA": "modify_permissions",
+      "permissionB": "approve_access",
+      "severity": "medium",
+      "title": "Entitlement change and access approval",
+      "rationale": "Privilege escalation becomes self-service: the administrator who changes entitlements is also the control that is supposed to authorize the change.",
+      "mappedCriteria": [
+        "CC6.1",
+        "CC6.3",
+        "CC5.2"
+      ]
+    },
+    {
+      "id": "SOD-09",
+      "permissionA": "run_payroll",
+      "permissionB": "edit_employee_comp",
+      "severity": "medium",
+      "title": "Compensation change and payroll execution",
+      "rationale": "One person can change a compensation record and then pay it out, with no independent review of the change before money leaves.",
+      "mappedCriteria": [
+        "CC6.3",
+        "CC5.2"
+      ]
+    },
+    {
+      "id": "SOD-10",
+      "permissionA": "export_customer_data",
+      "permissionB": "modify_permissions",
+      "severity": "medium",
+      "title": "Bulk data export and entitlement change",
+      "rationale": "A person who can widen their own access and bulk-export merchant records can assemble a confidential dataset without anyone approving it.",
+      "mappedCriteria": [
+        "CC6.1",
+        "C1.1"
+      ]
+    }
+  ]
+}

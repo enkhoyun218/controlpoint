@@ -1,0 +1,580 @@
+{
+  "_note": "Synthetic data for an educational SOC 2 readiness concept. Not a real assessment.",
+  "users": [
+    {
+      "userId": "U-001",
+      "name": "Rafael Pak",
+      "department": "Finance",
+      "title": "Controller",
+      "roles": [
+        "Controller_Role",
+        "Vendor_Admin"
+      ],
+      "accessNote": "Kept vendor master rights from an earlier procurement role."
+    },
+    {
+      "userId": "U-002",
+      "name": "Jamal Ferrer",
+      "department": "Finance",
+      "title": "Accounts Payable Manager",
+      "roles": [
+        "AP_Clerk",
+        "AP_Approver"
+      ],
+      "accessNote": "Covers approvals when the Controller is out, and still runs batches."
+    },
+    {
+      "userId": "U-003",
+      "name": "Adrian Fournier",
+      "department": "Finance",
+      "title": "Procurement Lead",
+      "roles": [
+        "Vendor_Admin",
+        "AP_Clerk"
+      ],
+      "accessNote": "Onboards vendors and queues their first payment."
+    },
+    {
+      "userId": "U-004",
+      "name": "Diego Kovac",
+      "department": "Finance",
+      "title": "Senior Accountant",
+      "roles": [
+        "GL_Accountant",
+        "Finance_Manager"
+      ],
+      "accessNote": "Promoted without the prior entitlement being removed."
+    },
+    {
+      "userId": "U-005",
+      "name": "Dmitri Brennan",
+      "department": "Engineering",
+      "title": "Principal Engineer",
+      "roles": [
+        "Developer",
+        "Release_Manager",
+        "Prod_DBA"
+      ],
+      "accessNote": "Long-tenured engineer who accumulated production entitlements."
+    },
+    {
+      "userId": "U-006",
+      "name": "Adrian Larsen",
+      "department": "Engineering",
+      "title": "Lead Site Reliability Engineer",
+      "roles": [
+        "SRE",
+        "Prod_DBA"
+      ],
+      "accessNote": "On-call runbooks require direct database intervention."
+    },
+    {
+      "userId": "U-007",
+      "name": "Diego Nakamura",
+      "department": "Engineering",
+      "title": "Release Manager",
+      "roles": [
+        "Release_Manager"
+      ],
+      "accessNote": "Approves and deploys the same change — role design conflict, not accumulation."
+    },
+    {
+      "userId": "U-008",
+      "name": "Tomas Haddad",
+      "department": "Engineering",
+      "title": "Platform Engineering Lead",
+      "roles": [
+        "SRE",
+        "Release_Manager"
+      ],
+      "accessNote": "Deploys and approves reviews for the platform team."
+    },
+    {
+      "userId": "U-009",
+      "name": "Clara Thibault",
+      "department": "Security",
+      "title": "Security Administrator",
+      "roles": [
+        "Security_Admin",
+        "Access_Approver"
+      ],
+      "accessNote": "Named as data owner for the identity platform while administering it."
+    },
+    {
+      "userId": "U-010",
+      "name": "Caleb Sato",
+      "department": "IT",
+      "title": "IT Manager",
+      "roles": [
+        "IT_Helpdesk",
+        "Access_Approver"
+      ],
+      "accessNote": "Approves access requests for systems the helpdesk provisions."
+    },
+    {
+      "userId": "U-011",
+      "name": "Tara Sorensen",
+      "department": "People Operations",
+      "title": "Payroll Manager",
+      "roles": [
+        "Payroll_Admin",
+        "Finance_Manager"
+      ],
+      "accessNote": "Payroll plus compensation edit rights held in one role set."
+    },
+    {
+      "userId": "U-012",
+      "name": "Adrian Demir",
+      "department": "Customer Support",
+      "title": "Support Operations Lead",
+      "roles": [
+        "Support_Lead",
+        "Security_Admin"
+      ],
+      "accessNote": "Retained admin rights from a previous internal tooling project."
+    },
+    {
+      "userId": "U-013",
+      "name": "Yara Callahan",
+      "department": "Customer Support",
+      "title": "Support Agent",
+      "roles": [
+        "Support_Agent"
+      ]
+    },
+    {
+      "userId": "U-014",
+      "name": "Tara Nakamura",
+      "department": "Customer Support",
+      "title": "Support Agent",
+      "roles": [
+        "Support_Agent",
+        "Access_Approver"
+      ]
+    },
+    {
+      "userId": "U-015",
+      "name": "Keiko Yoshida",
+      "department": "Legal",
+      "title": "Corporate Counsel",
+      "roles": []
+    },
+    {
+      "userId": "U-016",
+      "name": "Wren Petrova",
+      "department": "Legal",
+      "title": "Corporate Counsel",
+      "roles": [
+        "Access_Approver"
+      ]
+    },
+    {
+      "userId": "U-017",
+      "name": "Farid Nakamura",
+      "department": "People Operations",
+      "title": "People Operations Specialist",
+      "roles": []
+    },
+    {
+      "userId": "U-018",
+      "name": "Anika Demir",
+      "department": "Engineering",
+      "title": "Senior Software Engineer",
+      "roles": [
+        "Developer"
+      ]
+    },
+    {
+      "userId": "U-019",
+      "name": "Priya Novak",
+      "department": "Engineering",
+      "title": "Staff Engineer",
+      "roles": [
+        "Developer",
+        "QA_Engineer"
+      ]
+    },
+    {
+      "userId": "U-020",
+      "name": "Yara Osei",
+      "department": "Payment Operations",
+      "title": "Payment Operations Manager",
+      "roles": [
+        "AP_Approver",
+        "Support_Agent"
+      ]
+    },
+    {
+      "userId": "U-021",
+      "name": "Adrian Mensah",
+      "department": "People Operations",
+      "title": "People Operations Specialist",
+      "roles": []
+    },
+    {
+      "userId": "U-022",
+      "name": "Zane Nkemdirim",
+      "department": "Product",
+      "title": "Product Manager",
+      "roles": []
+    },
+    {
+      "userId": "U-023",
+      "name": "Jamal Mensah",
+      "department": "Finance",
+      "title": "Procurement Specialist",
+      "roles": [
+        "Vendor_Admin"
+      ]
+    },
+    {
+      "userId": "U-024",
+      "name": "Hannah Kovac",
+      "department": "Finance",
+      "title": "Procurement Specialist",
+      "roles": [
+        "Vendor_Admin"
+      ]
+    },
+    {
+      "userId": "U-025",
+      "name": "Elias Ferrer",
+      "department": "Engineering",
+      "title": "QA Engineer",
+      "roles": [
+        "QA_Engineer"
+      ]
+    },
+    {
+      "userId": "U-026",
+      "name": "Nathan Boateng",
+      "department": "Customer Support",
+      "title": "Support Agent",
+      "roles": [
+        "Support_Agent"
+      ]
+    },
+    {
+      "userId": "U-027",
+      "name": "Zara Thibault",
+      "department": "Finance",
+      "title": "Senior Accountant",
+      "roles": [
+        "GL_Accountant"
+      ]
+    },
+    {
+      "userId": "U-028",
+      "name": "Omar Rahman",
+      "department": "Engineering",
+      "title": "Database Administrator",
+      "roles": [
+        "Prod_DBA"
+      ]
+    },
+    {
+      "userId": "U-029",
+      "name": "Zara Kaur",
+      "department": "Finance",
+      "title": "Staff Accountant",
+      "roles": [
+        "GL_Accountant"
+      ]
+    },
+    {
+      "userId": "U-030",
+      "name": "Hiro Pak",
+      "department": "People Operations",
+      "title": "People Operations Specialist",
+      "roles": []
+    },
+    {
+      "userId": "U-031",
+      "name": "Ezra Moreno",
+      "department": "Security",
+      "title": "Security Administrator",
+      "roles": [
+        "Security_Admin"
+      ]
+    },
+    {
+      "userId": "U-032",
+      "name": "Caleb Tanaka",
+      "department": "Finance",
+      "title": "Financial Analyst",
+      "roles": [
+        "Auditor_ReadOnly"
+      ]
+    },
+    {
+      "userId": "U-033",
+      "name": "Quinn Marchetti",
+      "department": "Engineering",
+      "title": "QA Engineer",
+      "roles": [
+        "QA_Engineer"
+      ]
+    },
+    {
+      "userId": "U-034",
+      "name": "Yusuf Ugarte",
+      "department": "IT",
+      "title": "IT Systems Administrator",
+      "roles": [
+        "IT_Helpdesk"
+      ]
+    },
+    {
+      "userId": "U-035",
+      "name": "Olga Petrova",
+      "department": "Finance",
+      "title": "Treasury Analyst",
+      "roles": [
+        "Treasury_Analyst",
+        "Support_Agent"
+      ]
+    },
+    {
+      "userId": "U-036",
+      "name": "Diego Sorensen",
+      "department": "Customer Support",
+      "title": "Support Agent",
+      "roles": [
+        "Support_Agent"
+      ]
+    },
+    {
+      "userId": "U-037",
+      "name": "Viktor Moreno",
+      "department": "Security",
+      "title": "Security Administrator",
+      "roles": [
+        "Security_Admin",
+        "Auditor_ReadOnly"
+      ]
+    },
+    {
+      "userId": "U-038",
+      "name": "Ines Petrova",
+      "department": "Engineering",
+      "title": "Database Administrator",
+      "roles": [
+        "Prod_DBA"
+      ]
+    },
+    {
+      "userId": "U-039",
+      "name": "Olga Moreno",
+      "department": "Finance",
+      "title": "Treasury Analyst",
+      "roles": [
+        "Treasury_Analyst",
+        "Support_Agent"
+      ]
+    },
+    {
+      "userId": "U-040",
+      "name": "Caleb Stoyanov",
+      "department": "Product",
+      "title": "Product Manager",
+      "roles": []
+    },
+    {
+      "userId": "U-041",
+      "name": "Will Demir",
+      "department": "Payment Operations",
+      "title": "Payment Operations Analyst",
+      "roles": [
+        "AP_Clerk"
+      ]
+    },
+    {
+      "userId": "U-042",
+      "name": "Ben Demir",
+      "department": "Customer Support",
+      "title": "Support Agent",
+      "roles": [
+        "Support_Agent"
+      ]
+    },
+    {
+      "userId": "U-043",
+      "name": "Rosa Thibault",
+      "department": "Finance",
+      "title": "Financial Analyst",
+      "roles": [
+        "Auditor_ReadOnly"
+      ]
+    },
+    {
+      "userId": "U-044",
+      "name": "Amara Castillo",
+      "department": "Engineering",
+      "title": "Staff Engineer",
+      "roles": [
+        "Developer",
+        "QA_Engineer"
+      ]
+    },
+    {
+      "userId": "U-045",
+      "name": "Amara Zhang",
+      "department": "Finance",
+      "title": "Senior Accountant",
+      "roles": [
+        "GL_Accountant",
+        "Support_Agent"
+      ]
+    },
+    {
+      "userId": "U-046",
+      "name": "Keiko Haddad",
+      "department": "IT",
+      "title": "IT Systems Administrator",
+      "roles": [
+        "IT_Helpdesk",
+        "Auditor_ReadOnly"
+      ]
+    },
+    {
+      "userId": "U-047",
+      "name": "Dalia Ellison",
+      "department": "Product",
+      "title": "Product Designer",
+      "roles": []
+    },
+    {
+      "userId": "U-048",
+      "name": "Dalia Pak",
+      "department": "Finance",
+      "title": "Senior Accountant",
+      "roles": [
+        "GL_Accountant",
+        "Auditor_ReadOnly"
+      ]
+    },
+    {
+      "userId": "U-049",
+      "name": "Elias Whitfield",
+      "department": "People Operations",
+      "title": "Recruiter",
+      "roles": []
+    },
+    {
+      "userId": "U-050",
+      "name": "Grace O'Brien",
+      "department": "Finance",
+      "title": "Accounting Manager",
+      "roles": [
+        "Finance_Manager"
+      ]
+    },
+    {
+      "userId": "U-051",
+      "name": "Bianca Demir",
+      "department": "Engineering",
+      "title": "Site Reliability Engineer",
+      "roles": [
+        "SRE"
+      ]
+    },
+    {
+      "userId": "U-052",
+      "name": "Bianca Novak",
+      "department": "Finance",
+      "title": "Accounting Manager",
+      "roles": [
+        "Finance_Manager"
+      ]
+    },
+    {
+      "userId": "U-053",
+      "name": "Will Lindqvist",
+      "department": "IT",
+      "title": "IT Systems Administrator",
+      "roles": [
+        "IT_Helpdesk"
+      ]
+    },
+    {
+      "userId": "U-054",
+      "name": "Grace Ivanov",
+      "department": "IT",
+      "title": "IT Systems Administrator",
+      "roles": [
+        "IT_Helpdesk"
+      ]
+    },
+    {
+      "userId": "U-055",
+      "name": "Yara Pak",
+      "department": "Security",
+      "title": "Compliance Analyst",
+      "roles": [
+        "Auditor_ReadOnly"
+      ]
+    },
+    {
+      "userId": "U-056",
+      "name": "Gabriel Lindqvist",
+      "department": "Finance",
+      "title": "Treasury Analyst",
+      "roles": [
+        "Treasury_Analyst"
+      ]
+    },
+    {
+      "userId": "U-057",
+      "name": "Julia Pak",
+      "department": "Finance",
+      "title": "Financial Analyst",
+      "roles": [
+        "Auditor_ReadOnly"
+      ]
+    },
+    {
+      "userId": "U-058",
+      "name": "Yara Quintero",
+      "department": "Finance",
+      "title": "Financial Analyst",
+      "roles": [
+        "Auditor_ReadOnly"
+      ]
+    },
+    {
+      "userId": "U-059",
+      "name": "Rafael Ugarte",
+      "department": "Legal",
+      "title": "Contracts Manager",
+      "roles": [
+        "Vendor_Admin",
+        "QA_Engineer"
+      ]
+    },
+    {
+      "userId": "U-060",
+      "name": "Simon Ugarte",
+      "department": "Product",
+      "title": "Product Designer",
+      "roles": []
+    },
+    {
+      "userId": "U-061",
+      "name": "Maya Moreno",
+      "department": "Engineering",
+      "title": "Software Engineer",
+      "roles": [
+        "Developer"
+      ]
+    },
+    {
+      "userId": "U-062",
+      "name": "Tara Yoshida",
+      "department": "Finance",
+      "title": "Treasury Analyst",
+      "roles": [
+        "Treasury_Analyst"
+      ]
+    }
+  ]
+}

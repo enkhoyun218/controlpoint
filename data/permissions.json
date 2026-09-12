@@ -1,0 +1,134 @@
+{
+  "_note": "Synthetic data for an educational SOC 2 readiness concept. Not a real assessment.",
+  "permissionCatalogue": {
+    "create_vendor": "Create a new vendor or payee record",
+    "edit_vendor": "Change vendor banking or contact details",
+    "view_vendor": "View the vendor master file",
+    "initiate_payment": "Submit a payment or payout for processing",
+    "approve_payment": "Release a payment or payout for settlement",
+    "create_payment_batch": "Assemble a batch of payments for release",
+    "view_bank_account": "View company bank account balances and detail",
+    "post_journal_entry": "Post an entry to the general ledger",
+    "approve_journal_entry": "Approve a general ledger entry",
+    "view_gl": "Read the general ledger",
+    "run_payroll": "Execute a payroll run",
+    "edit_employee_comp": "Change employee compensation records",
+    "commit_code": "Commit code to a source repository",
+    "approve_code_review": "Approve a pull request for merge",
+    "deploy_code": "Deploy an artifact to production",
+    "manage_infrastructure": "Change production cloud infrastructure",
+    "prod_db_read": "Read production database contents",
+    "prod_db_write": "Write directly to the production database",
+    "create_user": "Create a user account in the identity provider",
+    "modify_permissions": "Grant or change entitlements on an account",
+    "approve_access": "Approve an access request as data owner",
+    "reset_password": "Reset a user's credentials",
+    "view_audit_log": "Read security and system audit logs",
+    "view_customer_data": "View merchant and cardholder-adjacent records",
+    "export_customer_data": "Bulk export merchant records"
+  },
+  "roleDescriptions": {
+    "AP_Clerk": "Accounts payable clerk — prepares and submits payment runs",
+    "AP_Approver": "Accounts payable approver — releases payments",
+    "Vendor_Admin": "Maintains the vendor master file",
+    "Treasury_Analyst": "Manages bank relationships and initiates transfers",
+    "Controller_Role": "Controller — final approver for payments and entries",
+    "GL_Accountant": "General ledger accountant",
+    "Finance_Manager": "Finance manager — reviews and approves entries",
+    "Payroll_Admin": "Runs payroll and maintains compensation records",
+    "Developer": "Application engineer with commit and read access",
+    "Release_Manager": "Owns production releases",
+    "SRE": "Site reliability engineer — infrastructure and deploys",
+    "Prod_DBA": "Production database administrator",
+    "Security_Admin": "Administers identity and entitlements",
+    "IT_Helpdesk": "First-line IT support",
+    "Access_Approver": "Data owner who approves access requests",
+    "Auditor_ReadOnly": "Read-only access for internal audit",
+    "Support_Agent": "Merchant support agent",
+    "Support_Lead": "Merchant support lead with export rights",
+    "QA_Engineer": "Quality engineer who reviews changes"
+  },
+  "roles": {
+    "AP_Clerk": [
+      "create_payment_batch",
+      "initiate_payment",
+      "view_vendor"
+    ],
+    "AP_Approver": [
+      "approve_payment",
+      "view_vendor",
+      "view_gl"
+    ],
+    "Vendor_Admin": [
+      "create_vendor",
+      "edit_vendor",
+      "view_vendor"
+    ],
+    "Treasury_Analyst": [
+      "initiate_payment",
+      "view_bank_account"
+    ],
+    "Controller_Role": [
+      "approve_payment",
+      "approve_journal_entry",
+      "view_gl",
+      "view_bank_account"
+    ],
+    "GL_Accountant": [
+      "post_journal_entry",
+      "view_gl"
+    ],
+    "Finance_Manager": [
+      "approve_journal_entry",
+      "view_gl",
+      "view_bank_account"
+    ],
+    "Payroll_Admin": [
+      "run_payroll",
+      "edit_employee_comp"
+    ],
+    "Developer": [
+      "commit_code",
+      "prod_db_read"
+    ],
+    "Release_Manager": [
+      "deploy_code",
+      "approve_code_review"
+    ],
+    "SRE": [
+      "deploy_code",
+      "manage_infrastructure",
+      "prod_db_read"
+    ],
+    "Prod_DBA": [
+      "prod_db_write",
+      "prod_db_read"
+    ],
+    "Security_Admin": [
+      "modify_permissions",
+      "create_user",
+      "view_audit_log"
+    ],
+    "IT_Helpdesk": [
+      "create_user",
+      "reset_password"
+    ],
+    "Access_Approver": [
+      "approve_access"
+    ],
+    "Auditor_ReadOnly": [
+      "view_audit_log",
+      "view_gl"
+    ],
+    "Support_Agent": [
+      "view_customer_data"
+    ],
+    "Support_Lead": [
+      "view_customer_data",
+      "export_customer_data"
+    ],
+    "QA_Engineer": [
+      "approve_code_review"
+    ]
+  }
+}

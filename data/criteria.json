@@ -1,0 +1,340 @@
+{
+  "_note": "Synthetic data for an educational SOC 2 readiness concept. Not a real assessment.",
+  "categories": [
+    {
+      "id": "CC1",
+      "name": "Control Environment",
+      "tsc": "Security",
+      "summary": "Tone at the top: ethics, board oversight, structure, competence, accountability.",
+      "inScope": true
+    },
+    {
+      "id": "CC2",
+      "name": "Communication and Information",
+      "tsc": "Security",
+      "summary": "Getting the right information to the right people, inside and outside the company.",
+      "inScope": true
+    },
+    {
+      "id": "CC3",
+      "name": "Risk Assessment",
+      "tsc": "Security",
+      "summary": "Identifying what could go wrong — including fraud — and analyzing it.",
+      "inScope": true
+    },
+    {
+      "id": "CC4",
+      "name": "Monitoring Activities",
+      "tsc": "Security",
+      "summary": "Checking that controls are actually working, and reporting when they are not.",
+      "inScope": true
+    },
+    {
+      "id": "CC5",
+      "name": "Control Activities",
+      "tsc": "Security",
+      "summary": "Selecting and deploying the controls, including technology controls and policies.",
+      "inScope": true
+    },
+    {
+      "id": "CC6",
+      "name": "Logical and Physical Access",
+      "tsc": "Security",
+      "summary": "Who can get to what: provisioning, least privilege, encryption, physical access.",
+      "inScope": true
+    },
+    {
+      "id": "CC7",
+      "name": "System Operations",
+      "tsc": "Security",
+      "summary": "Running the system: vulnerability management, monitoring, incident response.",
+      "inScope": true
+    },
+    {
+      "id": "CC8",
+      "name": "Change Management",
+      "tsc": "Security",
+      "summary": "Authorizing, testing, and approving changes before they reach production.",
+      "inScope": true
+    },
+    {
+      "id": "CC9",
+      "name": "Risk Mitigation",
+      "tsc": "Security",
+      "summary": "Business disruption and vendor risk.",
+      "inScope": true
+    },
+    {
+      "id": "PI1",
+      "name": "Processing Integrity",
+      "tsc": "Processing Integrity",
+      "summary": "Processing is complete, valid, accurate, timely, and authorized.",
+      "inScope": true
+    },
+    {
+      "id": "C1",
+      "name": "Confidentiality",
+      "tsc": "Confidentiality",
+      "summary": "Confidential information is protected in life and destroyed at end of retention.",
+      "inScope": true
+    }
+  ],
+  "outOfScopeCategories": [
+    {
+      "id": "A1",
+      "name": "Availability",
+      "tsc": "Availability",
+      "summary": "Capacity, backup, and recovery against uptime commitments.",
+      "inScope": false
+    },
+    {
+      "id": "P1–P8",
+      "name": "Privacy",
+      "tsc": "Privacy",
+      "summary": "Notice, choice, collection, retention, disclosure, and quality of personal information.",
+      "inScope": false
+    }
+  ],
+  "criteria": [
+    {
+      "id": "CC1.1",
+      "category": "CC1",
+      "categoryName": "Control Environment",
+      "intent": "The company demonstrates a commitment to integrity and ethical values."
+    },
+    {
+      "id": "CC1.2",
+      "category": "CC1",
+      "categoryName": "Control Environment",
+      "intent": "The board exercises independent oversight of the system of internal control."
+    },
+    {
+      "id": "CC1.3",
+      "category": "CC1",
+      "categoryName": "Control Environment",
+      "intent": "Management establishes reporting lines, structures, and authority to pursue objectives."
+    },
+    {
+      "id": "CC1.4",
+      "category": "CC1",
+      "categoryName": "Control Environment",
+      "intent": "The company attracts, develops, and retains competent people."
+    },
+    {
+      "id": "CC1.5",
+      "category": "CC1",
+      "categoryName": "Control Environment",
+      "intent": "The company holds individuals accountable for their control responsibilities."
+    },
+    {
+      "id": "CC2.1",
+      "category": "CC2",
+      "categoryName": "Communication and Information",
+      "intent": "Relevant, quality information is obtained and used to support internal control."
+    },
+    {
+      "id": "CC2.2",
+      "category": "CC2",
+      "categoryName": "Communication and Information",
+      "intent": "Internal control information, including responsibilities, is communicated internally."
+    },
+    {
+      "id": "CC2.3",
+      "category": "CC2",
+      "categoryName": "Communication and Information",
+      "intent": "Relevant information is communicated to external parties such as customers."
+    },
+    {
+      "id": "CC3.1",
+      "category": "CC3",
+      "categoryName": "Risk Assessment",
+      "intent": "Objectives are specified clearly enough to identify and assess related risks."
+    },
+    {
+      "id": "CC3.2",
+      "category": "CC3",
+      "categoryName": "Risk Assessment",
+      "intent": "Risks to objectives are identified and analyzed as a basis for managing them."
+    },
+    {
+      "id": "CC3.3",
+      "category": "CC3",
+      "categoryName": "Risk Assessment",
+      "intent": "The potential for fraud is considered when assessing risk."
+    },
+    {
+      "id": "CC3.4",
+      "category": "CC3",
+      "categoryName": "Risk Assessment",
+      "intent": "Changes that could significantly affect internal control are identified and assessed."
+    },
+    {
+      "id": "CC4.1",
+      "category": "CC4",
+      "categoryName": "Monitoring Activities",
+      "intent": "Ongoing and separate evaluations confirm whether controls are present and working."
+    },
+    {
+      "id": "CC4.2",
+      "category": "CC4",
+      "categoryName": "Monitoring Activities",
+      "intent": "Control deficiencies are evaluated and communicated to those responsible for corrective action."
+    },
+    {
+      "id": "CC5.1",
+      "category": "CC5",
+      "categoryName": "Control Activities",
+      "intent": "Control activities are selected and developed to mitigate risks to acceptable levels."
+    },
+    {
+      "id": "CC5.2",
+      "category": "CC5",
+      "categoryName": "Control Activities",
+      "intent": "Control activities over technology are selected and developed to support objectives."
+    },
+    {
+      "id": "CC5.3",
+      "category": "CC5",
+      "categoryName": "Control Activities",
+      "intent": "Control activities are deployed through policies and the procedures that put them into action."
+    },
+    {
+      "id": "CC6.1",
+      "category": "CC6",
+      "categoryName": "Logical and Physical Access",
+      "intent": "Logical access security protects information assets from unauthorized use."
+    },
+    {
+      "id": "CC6.2",
+      "category": "CC6",
+      "categoryName": "Logical and Physical Access",
+      "intent": "Access is registered, authorized, and removed when no longer appropriate."
+    },
+    {
+      "id": "CC6.3",
+      "category": "CC6",
+      "categoryName": "Logical and Physical Access",
+      "intent": "Access to data and functions is managed based on roles and least privilege."
+    },
+    {
+      "id": "CC6.4",
+      "category": "CC6",
+      "categoryName": "Logical and Physical Access",
+      "intent": "Physical access to facilities and protected assets is restricted."
+    },
+    {
+      "id": "CC6.5",
+      "category": "CC6",
+      "categoryName": "Logical and Physical Access",
+      "intent": "Data and software are removed from assets before disposal or reuse."
+    },
+    {
+      "id": "CC6.6",
+      "category": "CC6",
+      "categoryName": "Logical and Physical Access",
+      "intent": "The system is protected against threats originating outside its boundaries."
+    },
+    {
+      "id": "CC6.7",
+      "category": "CC6",
+      "categoryName": "Logical and Physical Access",
+      "intent": "Information is protected in transmission, movement, and removal."
+    },
+    {
+      "id": "CC6.8",
+      "category": "CC6",
+      "categoryName": "Logical and Physical Access",
+      "intent": "Unauthorized or malicious software is prevented from being introduced."
+    },
+    {
+      "id": "CC7.1",
+      "category": "CC7",
+      "categoryName": "System Operations",
+      "intent": "Configuration standards are used to detect vulnerabilities and unauthorized change."
+    },
+    {
+      "id": "CC7.2",
+      "category": "CC7",
+      "categoryName": "System Operations",
+      "intent": "The system is monitored to detect anomalies that indicate a security event."
+    },
+    {
+      "id": "CC7.3",
+      "category": "CC7",
+      "categoryName": "System Operations",
+      "intent": "Security events are evaluated to determine whether they are incidents."
+    },
+    {
+      "id": "CC7.4",
+      "category": "CC7",
+      "categoryName": "System Operations",
+      "intent": "Identified incidents are contained, remediated, and communicated."
+    },
+    {
+      "id": "CC7.5",
+      "category": "CC7",
+      "categoryName": "System Operations",
+      "intent": "The company recovers from identified incidents and applies what it learns."
+    },
+    {
+      "id": "CC8.1",
+      "category": "CC8",
+      "categoryName": "Change Management",
+      "intent": "Changes to infrastructure, data, software, and procedures are authorized, tested, and approved."
+    },
+    {
+      "id": "CC9.1",
+      "category": "CC9",
+      "categoryName": "Risk Mitigation",
+      "intent": "The company identifies and mitigates risks from business disruptions."
+    },
+    {
+      "id": "CC9.2",
+      "category": "CC9",
+      "categoryName": "Risk Mitigation",
+      "intent": "Risks arising from vendors and business partners are assessed and managed."
+    },
+    {
+      "id": "PI1.1",
+      "category": "PI1",
+      "categoryName": "Processing Integrity",
+      "intent": "Information about processing objectives and data quality is available to users."
+    },
+    {
+      "id": "PI1.2",
+      "category": "PI1",
+      "categoryName": "Processing Integrity",
+      "intent": "Inputs are complete, accurate, and authorized before processing."
+    },
+    {
+      "id": "PI1.3",
+      "category": "PI1",
+      "categoryName": "Processing Integrity",
+      "intent": "Processing itself is complete, accurate, timely, and properly authorized."
+    },
+    {
+      "id": "PI1.4",
+      "category": "PI1",
+      "categoryName": "Processing Integrity",
+      "intent": "Outputs are complete, accurate, and delivered only to the people entitled to them."
+    },
+    {
+      "id": "PI1.5",
+      "category": "PI1",
+      "categoryName": "Processing Integrity",
+      "intent": "Stored information supporting processing is complete, accurate, and timely."
+    },
+    {
+      "id": "C1.1",
+      "category": "C1",
+      "categoryName": "Confidentiality",
+      "intent": "Information designated confidential is identified and protected through its lifecycle."
+    },
+    {
+      "id": "C1.2",
+      "category": "C1",
+      "categoryName": "Confidentiality",
+      "intent": "Confidential information is disposed of when retention requirements end."
+    }
+  ]
+}

@@ -1,0 +1,923 @@
+{
+  "_note": "Synthetic data for an educational SOC 2 readiness concept. Not a real assessment.",
+  "asOfDate": "2026-01-15",
+  "controls": [
+    {
+      "id": "CTRL-001",
+      "title": "Code of conduct acknowledged at hire and annually",
+      "description": "Every employee and contractor signs the code of conduct when they join and re-acknowledges it each year; HR tracks completion and escalates non-signers.",
+      "criteria": [
+        "CC1.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Signed acknowledgement export",
+      "owner": "Chief People Officer",
+      "frequency": "annual",
+      "lastTested": "2025-08-12",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-002",
+      "title": "Background checks completed before start date",
+      "description": "Criminal, employment, and (for finance and engineering roles) credit screening is completed and cleared before a new hire receives system access.",
+      "criteria": [
+        "CC1.1",
+        "CC1.4"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Screening vendor results sample",
+      "owner": "People Operations Manager",
+      "frequency": "per-event",
+      "lastTested": "2025-10-28",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 120
+    },
+    {
+      "id": "CTRL-003",
+      "title": "Quarterly security steering committee with board reporting",
+      "description": "A cross-functional steering committee reviews the security program, open risks, and incidents each quarter, and reports to the board audit committee.",
+      "criteria": [
+        "CC1.2"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Meeting minutes and board deck",
+      "owner": "Chief Executive Officer",
+      "frequency": "quarterly",
+      "lastTested": "2025-12-24",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 110
+    },
+    {
+      "id": "CTRL-004",
+      "title": "Org chart and role descriptions define security responsibility",
+      "description": "Documented reporting lines and job descriptions state who owns which security and compliance responsibilities; reviewed when the org changes and at least annually.",
+      "criteria": [
+        "CC1.3",
+        "CC2.2"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Approved org chart and job descriptions",
+      "owner": "Chief People Officer",
+      "frequency": "annual",
+      "lastTested": "2025-10-21",
+      "inherentRisk": "low",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-005",
+      "title": "Annual security awareness training with completion tracking",
+      "description": "All staff complete role-appropriate security training each year, including secure coding for engineers and fraud awareness for finance. Completion is tracked and enforced.",
+      "criteria": [
+        "CC1.4",
+        "CC2.2"
+      ],
+      "status": "implemented",
+      "evidence": "stale",
+      "evidenceType": "LMS completion report",
+      "owner": "Chief Information Security Officer",
+      "frequency": "annual",
+      "lastTested": "2023-04-13",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-006",
+      "title": "Performance reviews include control responsibilities",
+      "description": "Annual performance reviews assess whether individuals met the security and compliance responsibilities in their role. Currently applied to managers only, not all staff.",
+      "criteria": [
+        "CC1.5"
+      ],
+      "status": "partial",
+      "evidence": "current",
+      "evidenceType": "Review template and sample",
+      "owner": "People Operations Manager",
+      "frequency": "annual",
+      "lastTested": "2025-11-03",
+      "inherentRisk": "low",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-007",
+      "title": "Information security policy suite reviewed and approved annually",
+      "description": "A documented policy set (security, access, change, incident, vendor, data handling) is reviewed, approved by the CISO, and published to all staff each year.",
+      "criteria": [
+        "CC2.2",
+        "CC1.3",
+        "CC5.3"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Approved policy set with version history",
+      "owner": "Chief Information Security Officer",
+      "frequency": "annual",
+      "lastTested": "2025-10-03",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-008",
+      "title": "Confidential reporting channel for security and ethics concerns",
+      "description": "Staff can report security, fraud, or ethics concerns through a named channel and an anonymous hotline; reports are logged and triaged by the CISO and General Counsel.",
+      "criteria": [
+        "CC2.2",
+        "CC1.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Hotline log and triage records",
+      "owner": "General Counsel",
+      "frequency": "continuous",
+      "lastTested": "2026-01-07",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-009",
+      "title": "System description and security commitments published to customers",
+      "description": "The trust page, MSA, and DPA describe the system boundary, security commitments, and customer responsibilities; reviewed annually and on material change.",
+      "criteria": [
+        "CC2.3"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Trust page and contract templates",
+      "owner": "General Counsel",
+      "frequency": "annual",
+      "lastTested": "2025-10-24",
+      "inherentRisk": "low",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-010",
+      "title": "Data classification standard maintained and communicated",
+      "description": "A four-tier classification standard (public, internal, confidential, restricted/cardholder) defines handling rules. The standard exists but has not been rolled out to all data stores.",
+      "criteria": [
+        "CC2.1",
+        "C1.1"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Classification standard and rollout tracker",
+      "owner": "Chief Information Security Officer",
+      "frequency": "annual",
+      "lastTested": "2023-02-25",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-011",
+      "title": "Annual enterprise risk assessment with maintained risk register",
+      "description": "Management identifies and rates risks to security and processing objectives, assigns owners and treatment plans, and maintains the results in a risk register.",
+      "criteria": [
+        "CC3.1",
+        "CC3.2"
+      ],
+      "status": "implemented",
+      "evidence": "stale",
+      "evidenceType": "Risk register and assessment memo",
+      "owner": "Chief Information Security Officer",
+      "frequency": "annual",
+      "lastTested": "2024-04-12",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-012",
+      "title": "Fraud risk assessment covering payment and payout flows",
+      "description": "A specific assessment of fraud scenarios — fictitious vendors, duplicate or self-approved payouts, insider misuse of production data — with mapped mitigating controls.",
+      "criteria": [
+        "CC3.3"
+      ],
+      "status": "partial",
+      "evidence": "missing",
+      "evidenceType": "Fraud risk matrix",
+      "owner": "Controller",
+      "frequency": "annual",
+      "lastTested": null,
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-013",
+      "title": "Risk review of significant system and business changes",
+      "description": "Material changes (new payment rails, new subprocessors, re-architecture) get a documented risk review before launch. Applied inconsistently to infrastructure changes.",
+      "criteria": [
+        "CC3.4"
+      ],
+      "status": "partial",
+      "evidence": "current",
+      "evidenceType": "Change risk review records",
+      "owner": "VP Engineering",
+      "frequency": "per-event",
+      "lastTested": "2025-11-29",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 120
+    },
+    {
+      "id": "CTRL-014",
+      "title": "Vendor risk assessment before onboarding",
+      "description": "New vendors with access to production or confidential data are risk-rated and reviewed (SOC 2 report, security questionnaire, contract terms) before contract signature.",
+      "criteria": [
+        "CC3.2",
+        "CC9.2"
+      ],
+      "status": "implemented",
+      "evidence": "stale",
+      "evidenceType": "Vendor assessment files",
+      "owner": "Vendor Risk Manager",
+      "frequency": "per-event",
+      "lastTested": "2025-07-24",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 120
+    },
+    {
+      "id": "CTRL-015",
+      "title": "Quarterly internal control self-assessment",
+      "description": "Control owners attest each quarter that their control operated, and attach evidence. Compliance samples and challenges the attestations. Two of the last four quarters were skipped.",
+      "criteria": [
+        "CC4.1"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Self-assessment attestations",
+      "owner": "Compliance Manager",
+      "frequency": "quarterly",
+      "lastTested": "2025-06-09",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 110
+    },
+    {
+      "id": "CTRL-016",
+      "title": "Annual third-party penetration test with tracked remediation",
+      "description": "An external firm performs network and application penetration testing annually; findings are risk-rated, assigned, and tracked to closure against defined SLAs.",
+      "criteria": [
+        "CC4.1",
+        "CC7.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Pen test report and remediation tracker",
+      "owner": "Chief Information Security Officer",
+      "frequency": "annual",
+      "lastTested": "2025-10-07",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-017",
+      "title": "Control deficiencies tracked to closure and reported to management",
+      "description": "Deficiencies from self-assessments, pen tests, and incidents are logged with owner, due date, and status, and reported monthly to leadership. Reporting has been ad hoc.",
+      "criteria": [
+        "CC4.2"
+      ],
+      "status": "partial",
+      "evidence": "current",
+      "evidenceType": "Deficiency register and status reports",
+      "owner": "Compliance Manager",
+      "frequency": "monthly",
+      "lastTested": "2026-01-04",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 45
+    },
+    {
+      "id": "CTRL-018",
+      "title": "Control matrix maps every control to criteria, owner, and frequency",
+      "description": "A maintained control matrix links each control to the criteria it addresses, names an accountable owner, and states test frequency; reviewed annually by Compliance.",
+      "criteria": [
+        "CC5.1",
+        "CC5.3"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Control matrix with review sign-off",
+      "owner": "Compliance Manager",
+      "frequency": "annual",
+      "lastTested": "2025-07-08",
+      "inherentRisk": "low",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-019",
+      "title": "Segregation of duties matrix defined for payment and production roles",
+      "description": "A documented conflict matrix defines role pairs that must not be held by the same person across the payment, payroll, and production-change systems. Defined, but not enforced or monitored.",
+      "criteria": [
+        "CC5.2",
+        "CC6.3"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "SoD conflict matrix and review",
+      "owner": "Controller",
+      "frequency": "semi-annual",
+      "lastTested": "2024-11-23",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 200
+    },
+    {
+      "id": "CTRL-020",
+      "title": "Automated policy enforcement in CI/CD and cloud configuration",
+      "description": "Pipeline gates and cloud policy-as-code block known-bad configurations (public buckets, unencrypted volumes, missing tags) before they reach production.",
+      "criteria": [
+        "CC5.2",
+        "CC8.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Policy-as-code repo and blocked-build logs",
+      "owner": "VP Engineering",
+      "frequency": "continuous",
+      "lastTested": "2026-01-09",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-021",
+      "title": "Unique user IDs with SSO and enforced MFA",
+      "description": "All corporate and production applications authenticate through the identity provider with unique accounts and mandatory multi-factor authentication; shared accounts are prohibited.",
+      "criteria": [
+        "CC6.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "IdP configuration export and MFA coverage report",
+      "owner": "IT Manager",
+      "frequency": "continuous",
+      "lastTested": "2026-01-08",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-022",
+      "title": "Access provisioning requires documented approval from the data owner",
+      "description": "New access is requested through a ticket and approved by the system or data owner before it is granted. Approvals are inconsistently captured for engineering tooling.",
+      "criteria": [
+        "CC6.1",
+        "CC6.2"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Access request tickets with approvals",
+      "owner": "IT Manager",
+      "frequency": "per-event",
+      "lastTested": "2025-07-05",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 120
+    },
+    {
+      "id": "CTRL-023",
+      "title": "Access revoked within 24 hours of termination",
+      "description": "Offboarding triggers removal of SSO, VPN, production, and financial system access within one business day, with a checklist signed by IT. Tickets for part of the period cannot be produced.",
+      "criteria": [
+        "CC6.2",
+        "CC6.3"
+      ],
+      "status": "implemented",
+      "evidence": "stale",
+      "evidenceType": "Termination checklist and deprovisioning logs",
+      "owner": "IT Manager",
+      "frequency": "per-event",
+      "lastTested": "2025-07-20",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 120
+    },
+    {
+      "id": "CTRL-024",
+      "title": "Quarterly user access review of production and financial systems",
+      "description": "System owners review every account and privilege level each quarter and certify or revoke. The review has not been performed for the audit period.",
+      "criteria": [
+        "CC6.2",
+        "CC6.3"
+      ],
+      "status": "partial",
+      "evidence": "missing",
+      "evidenceType": "Signed access review certifications",
+      "owner": "Chief Information Security Officer",
+      "frequency": "quarterly",
+      "lastTested": null,
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 110
+    },
+    {
+      "id": "CTRL-025",
+      "title": "Privileged access restricted, time-bound, and reviewed",
+      "description": "Administrative and production write access should be granted just-in-time with expiry and approval. Today privileged roles are standing and unreviewed.",
+      "criteria": [
+        "CC6.3"
+      ],
+      "status": "not_implemented",
+      "evidence": "missing",
+      "evidenceType": "JIT grant logs and privileged role inventory",
+      "owner": "Security Administrator",
+      "frequency": "quarterly",
+      "lastTested": null,
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 110
+    },
+    {
+      "id": "CTRL-026",
+      "title": "Production database access brokered through a logged bastion",
+      "description": "Direct database access requires going through a bastion host that records the session; direct network paths to production data stores are blocked.",
+      "criteria": [
+        "CC6.1",
+        "CC6.6"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Bastion session logs and network policy",
+      "owner": "Platform Engineering Lead",
+      "frequency": "continuous",
+      "lastTested": "2026-01-13",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-027",
+      "title": "Encryption in transit for all external connections",
+      "description": "TLS 1.2 or higher is enforced on every externally reachable endpoint, with weak ciphers disabled and certificates monitored for expiry.",
+      "criteria": [
+        "CC6.7",
+        "C1.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "TLS scan results and load balancer config",
+      "owner": "Platform Engineering Lead",
+      "frequency": "continuous",
+      "lastTested": "2026-01-12",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-028",
+      "title": "Encryption at rest for cardholder and merchant data stores",
+      "description": "Databases, object storage, backups, and snapshots holding cardholder or merchant data are encrypted at rest with managed keys and rotation enabled.",
+      "criteria": [
+        "CC6.1",
+        "C1.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Storage encryption config export",
+      "owner": "Platform Engineering Lead",
+      "frequency": "continuous",
+      "lastTested": "2026-01-13",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-029",
+      "title": "Endpoint protection and full-disk encryption on company laptops",
+      "description": "Managed laptops enforce disk encryption, screen lock, patching, and EDR agent health; unmanaged devices cannot reach internal applications.",
+      "criteria": [
+        "CC6.6",
+        "CC6.7",
+        "CC6.8"
+      ],
+      "status": "implemented",
+      "evidence": "stale",
+      "evidenceType": "MDM fleet compliance report",
+      "owner": "IT Manager",
+      "frequency": "continuous",
+      "lastTested": "2025-12-14",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-030",
+      "title": "Physical access to facilities and data centers restricted",
+      "description": "Office entry uses badge access with a reviewed badge list; data center physical security is carved out to AWS and covered by reviewing their SOC 2 report annually.",
+      "criteria": [
+        "CC6.4",
+        "CC6.5"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Badge access list and subservice SOC 2 review",
+      "owner": "IT Manager",
+      "frequency": "annual",
+      "lastTested": "2025-10-28",
+      "inherentRisk": "low",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-031",
+      "title": "Secure disposal of decommissioned media and devices",
+      "description": "Laptops and storage media are cryptographically erased or destroyed at end of life with a certificate of destruction retained. Process is informal for cloud volumes.",
+      "criteria": [
+        "CC6.5"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Destruction certificates",
+      "owner": "IT Manager",
+      "frequency": "per-event",
+      "lastTested": "2025-04-03",
+      "inherentRisk": "low",
+      "expectedEvidenceIntervalDays": 120
+    },
+    {
+      "id": "CTRL-032",
+      "title": "Malicious software prevention on servers and workloads",
+      "description": "Container images are scanned and signed, only approved base images are allowed, and runtime agents alert on unexpected binaries in production workloads.",
+      "criteria": [
+        "CC6.8"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Image scan results and admission policy",
+      "owner": "Security Engineer",
+      "frequency": "continuous",
+      "lastTested": "2026-01-12",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-033",
+      "title": "Centralized logging with security alerting",
+      "description": "Application, infrastructure, and identity logs ship to a central store with alerting on privileged actions, failed authentication spikes, and configuration changes.",
+      "criteria": [
+        "CC7.2"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "SIEM alert rules and sample alerts",
+      "owner": "Security Engineer",
+      "frequency": "continuous",
+      "lastTested": "2026-01-11",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-034",
+      "title": "Vulnerability scanning with severity-based patch SLAs",
+      "description": "Infrastructure and dependency scanning runs monthly with remediation SLAs by severity (critical 7 days, high 30). Scans run, but overdue criticals are not tracked to closure.",
+      "criteria": [
+        "CC7.1"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Scan reports and SLA aging report",
+      "owner": "Security Engineer",
+      "frequency": "monthly",
+      "lastTested": "2025-10-23",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 45
+    },
+    {
+      "id": "CTRL-035",
+      "title": "Documented incident response plan with defined roles",
+      "description": "An IR plan defines severity levels, on-call roles, escalation paths, evidence handling, and customer and regulator notification timelines; reviewed annually.",
+      "criteria": [
+        "CC7.3",
+        "CC7.4"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Approved IR plan",
+      "owner": "Chief Information Security Officer",
+      "frequency": "annual",
+      "lastTested": "2025-09-29",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-036",
+      "title": "Annual incident response tabletop exercise",
+      "description": "A simulated incident is run each year with the response team, and gaps identified feed back into the plan. No exercise has been performed.",
+      "criteria": [
+        "CC7.4",
+        "CC7.5"
+      ],
+      "status": "not_implemented",
+      "evidence": "missing",
+      "evidenceType": "Tabletop scenario and lessons-learned memo",
+      "owner": "Chief Information Security Officer",
+      "frequency": "annual",
+      "lastTested": null,
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-037",
+      "title": "Security events triaged, tracked, and communicated",
+      "description": "Alerts are triaged against defined severity criteria, incidents are logged with a timeline, and affected customers are notified per contractual commitments.",
+      "criteria": [
+        "CC7.3",
+        "CC7.4",
+        "CC7.5",
+        "CC2.3"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Incident tickets with timelines",
+      "owner": "Chief Information Security Officer",
+      "frequency": "per-event",
+      "lastTested": "2025-11-25",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 120
+    },
+    {
+      "id": "CTRL-038",
+      "title": "Configuration baselines and drift detection for cloud infrastructure",
+      "description": "Hardened baselines are defined for compute, storage, and network resources, with automated drift detection. Detection covers production only, not the shared services account.",
+      "criteria": [
+        "CC7.1",
+        "CC7.2"
+      ],
+      "status": "partial",
+      "evidence": "current",
+      "evidenceType": "Baseline definitions and drift alerts",
+      "owner": "Platform Engineering Lead",
+      "frequency": "continuous",
+      "lastTested": "2026-01-12",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-039",
+      "title": "Peer review and approval required before code merges to main",
+      "description": "Branch protection requires an approving review from someone other than the author before merge. Administrators can bypass the rule and several bypasses were used during the period.",
+      "criteria": [
+        "CC8.1"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Pull request approval export and bypass log",
+      "owner": "VP Engineering",
+      "frequency": "continuous",
+      "lastTested": "2025-12-15",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-040",
+      "title": "Automated test suite and CI gates pass before deployment",
+      "description": "Unit, integration, and contract tests plus security scanning must pass in the pipeline before an artifact is promoted to production.",
+      "criteria": [
+        "CC8.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Pipeline run history",
+      "owner": "VP Engineering",
+      "frequency": "continuous",
+      "lastTested": "2026-01-11",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-041",
+      "title": "Separate development, staging, and production environments",
+      "description": "Environments are isolated by account and network, and production data is not copied into lower environments. Some legacy debugging exports to staging still occur.",
+      "criteria": [
+        "CC8.1",
+        "CC6.1"
+      ],
+      "status": "partial",
+      "evidence": "current",
+      "evidenceType": "Account topology and data-flow review",
+      "owner": "Platform Engineering Lead",
+      "frequency": "continuous",
+      "lastTested": "2026-01-09",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-042",
+      "title": "Emergency change procedure with retrospective approval",
+      "description": "Break-glass changes should be logged, justified, and approved after the fact within one business day. No formal procedure exists and emergency deploys are untracked.",
+      "criteria": [
+        "CC8.1"
+      ],
+      "status": "not_implemented",
+      "evidence": "missing",
+      "evidenceType": "Emergency change log with approvals",
+      "owner": "VP Engineering",
+      "frequency": "per-event",
+      "lastTested": null,
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 120
+    },
+    {
+      "id": "CTRL-043",
+      "title": "Infrastructure changes made through version-controlled IaC",
+      "description": "Cloud infrastructure changes go through Terraform with peer review and a plan-approval step; console changes are detected and reverted.",
+      "criteria": [
+        "CC8.1",
+        "CC7.1"
+      ],
+      "status": "implemented",
+      "evidence": "stale",
+      "evidenceType": "Terraform PR history and drift reports",
+      "owner": "Platform Engineering Lead",
+      "frequency": "continuous",
+      "lastTested": "2025-12-15",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-044",
+      "title": "Business continuity and disaster recovery plan tested annually",
+      "description": "A BC/DR plan defines RTO and RPO for payment processing and is validated by an annual restore and failover test. The plan exists; the test was not completed this period.",
+      "criteria": [
+        "CC9.1"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "BC/DR plan and test results",
+      "owner": "VP Engineering",
+      "frequency": "annual",
+      "lastTested": "2023-06-06",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-045",
+      "title": "Vendor contracts carry security terms and subservice reports reviewed",
+      "description": "Critical vendor contracts include security, confidentiality, and breach-notification terms, and their SOC 2 reports are reviewed annually with CUEC follow-up.",
+      "criteria": [
+        "CC9.2",
+        "CC3.2"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Contract clause review and SOC 2 review memos",
+      "owner": "Vendor Risk Manager",
+      "frequency": "annual",
+      "lastTested": "2023-04-29",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-046",
+      "title": "Processing commitments and data quality definitions documented",
+      "description": "Published documentation states what NimbusPay commits to on payment completeness, accuracy, and timing, and defines the data quality rules merchants can rely on.",
+      "criteria": [
+        "PI1.1"
+      ],
+      "status": "partial",
+      "evidence": "current",
+      "evidenceType": "Published processing commitments",
+      "owner": "VP Product",
+      "frequency": "annual",
+      "lastTested": "2025-10-09",
+      "inherentRisk": "low",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-047",
+      "title": "Payment input validation and authorization at the API boundary",
+      "description": "Every payment instruction is schema-validated, authenticated to a merchant key, checked for required fields and limits, and rejected with a typed error when invalid.",
+      "criteria": [
+        "PI1.2"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Validation rules and rejection metrics",
+      "owner": "VP Engineering",
+      "frequency": "continuous",
+      "lastTested": "2026-01-11",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-048",
+      "title": "Idempotency keys prevent duplicate payment processing",
+      "description": "Payment requests carry an idempotency key enforced at the ledger layer so retries and network failures cannot create duplicate transfers.",
+      "criteria": [
+        "PI1.2",
+        "PI1.3"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Idempotency design doc and duplicate-rate metrics",
+      "owner": "VP Engineering",
+      "frequency": "continuous",
+      "lastTested": "2026-01-10",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-049",
+      "title": "Daily reconciliation of processed payments to settlement files",
+      "description": "An automated job reconciles the internal ledger to processor settlement files each day and routes breaks to an exception queue. The job runs, but sign-off evidence is missing for much of the period.",
+      "criteria": [
+        "PI1.3",
+        "PI1.5"
+      ],
+      "status": "implemented",
+      "evidence": "stale",
+      "evidenceType": "Reconciliation reports with reviewer sign-off",
+      "owner": "Controller",
+      "frequency": "daily",
+      "lastTested": "2025-12-31",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 7
+    },
+    {
+      "id": "CTRL-050",
+      "title": "Exception and error queue reviewed and cleared within SLA",
+      "description": "Failed or broken transactions land in an exception queue reviewed daily by Payment Operations, with aging thresholds and escalation. Aging items regularly exceed the SLA.",
+      "criteria": [
+        "PI1.4",
+        "PI1.5"
+      ],
+      "status": "partial",
+      "evidence": "current",
+      "evidenceType": "Exception queue aging report",
+      "owner": "Payment Operations Manager",
+      "frequency": "daily",
+      "lastTested": "2026-01-12",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 7
+    },
+    {
+      "id": "CTRL-051",
+      "title": "Merchant output reporting reconciled before release",
+      "description": "Settlement statements and payout reports are reconciled to the ledger and reviewed before release to merchants, so merchants only receive complete and accurate figures.",
+      "criteria": [
+        "PI1.4"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Statement review sign-off",
+      "owner": "Controller",
+      "frequency": "monthly",
+      "lastTested": "2025-11-05",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 45
+    },
+    {
+      "id": "CTRL-052",
+      "title": "Confidential data inventory and retention schedule maintained",
+      "description": "An inventory records where confidential and cardholder data lives, its classification, owner, and retention period. The inventory is incomplete for analytics data stores.",
+      "criteria": [
+        "C1.1",
+        "CC2.1"
+      ],
+      "status": "partial",
+      "evidence": "stale",
+      "evidenceType": "Data inventory and retention schedule",
+      "owner": "General Counsel",
+      "frequency": "annual",
+      "lastTested": "2024-07-11",
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 380
+    },
+    {
+      "id": "CTRL-053",
+      "title": "Confidential data deleted at the end of its retention period",
+      "description": "Automated deletion should remove confidential records once retention expires, with evidence of deletion retained. Deletion is manual, undocumented, and has not been run.",
+      "criteria": [
+        "C1.2"
+      ],
+      "status": "not_implemented",
+      "evidence": "missing",
+      "evidenceType": "Deletion job logs and certificates",
+      "owner": "Platform Engineering Lead",
+      "frequency": "quarterly",
+      "lastTested": null,
+      "inherentRisk": "medium",
+      "expectedEvidenceIntervalDays": 110
+    },
+    {
+      "id": "CTRL-054",
+      "title": "Cardholder numbers tokenized and excluded from logs",
+      "description": "Primary account numbers are tokenized at ingress, stored only in the vault, and scrubbed from application logs, traces, and error reports by an automated filter.",
+      "criteria": [
+        "C1.1",
+        "CC6.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Tokenization architecture and log scan results",
+      "owner": "Platform Engineering Lead",
+      "frequency": "continuous",
+      "lastTested": "2026-01-09",
+      "inherentRisk": "high",
+      "expectedEvidenceIntervalDays": 14
+    },
+    {
+      "id": "CTRL-055",
+      "title": "Confidentiality agreements with employees and vendors",
+      "description": "Employees, contractors, and vendors with access to confidential data sign confidentiality agreements before access is granted, tracked by Legal.",
+      "criteria": [
+        "C1.1",
+        "CC1.1"
+      ],
+      "status": "implemented",
+      "evidence": "current",
+      "evidenceType": "Executed NDAs",
+      "owner": "General Counsel",
+      "frequency": "per-event",
+      "lastTested": "2025-12-05",
+      "inherentRisk": "low",
+      "expectedEvidenceIntervalDays": 120
+    }
+  ]
+}
