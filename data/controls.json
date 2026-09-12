@@ -81,7 +81,7 @@
       "evidenceType": "LMS completion report",
       "owner": "Chief Information Security Officer",
       "frequency": "annual",
-      "lastTested": "2023-04-13",
+      "lastTested": "2024-05-01",
       "inherentRisk": "medium",
       "expectedEvidenceIntervalDays": 380
     },
@@ -165,7 +165,7 @@
       "evidenceType": "Classification standard and rollout tracker",
       "owner": "Chief Information Security Officer",
       "frequency": "annual",
-      "lastTested": "2023-02-25",
+      "lastTested": "2024-04-13",
       "inherentRisk": "medium",
       "expectedEvidenceIntervalDays": 380
     },
@@ -182,7 +182,7 @@
       "evidenceType": "Risk register and assessment memo",
       "owner": "Chief Information Security Officer",
       "frequency": "annual",
-      "lastTested": "2024-04-12",
+      "lastTested": "2024-09-22",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 380
     },
@@ -231,7 +231,7 @@
       "evidenceType": "Vendor assessment files",
       "owner": "Vendor Risk Manager",
       "frequency": "per-event",
-      "lastTested": "2025-07-24",
+      "lastTested": "2025-08-28",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 120
     },
@@ -247,7 +247,7 @@
       "evidenceType": "Self-assessment attestations",
       "owner": "Compliance Manager",
       "frequency": "quarterly",
-      "lastTested": "2025-06-09",
+      "lastTested": "2025-08-16",
       "inherentRisk": "medium",
       "expectedEvidenceIntervalDays": 110
     },
@@ -314,7 +314,7 @@
       "evidenceType": "SoD conflict matrix and review",
       "owner": "Controller",
       "frequency": "semi-annual",
-      "lastTested": "2024-11-23",
+      "lastTested": "2025-04-06",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 200
     },
@@ -364,7 +364,7 @@
       "evidenceType": "Access request tickets with approvals",
       "owner": "IT Manager",
       "frequency": "per-event",
-      "lastTested": "2025-07-05",
+      "lastTested": "2025-08-20",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 120
     },
@@ -381,7 +381,7 @@
       "evidenceType": "Termination checklist and deprovisioning logs",
       "owner": "IT Manager",
       "frequency": "per-event",
-      "lastTested": "2025-07-20",
+      "lastTested": "2025-08-26",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 120
     },
@@ -483,7 +483,7 @@
       "evidenceType": "MDM fleet compliance report",
       "owner": "IT Manager",
       "frequency": "continuous",
-      "lastTested": "2025-12-14",
+      "lastTested": "2025-12-25",
       "inherentRisk": "medium",
       "expectedEvidenceIntervalDays": 14
     },
@@ -516,7 +516,7 @@
       "evidenceType": "Destruction certificates",
       "owner": "IT Manager",
       "frequency": "per-event",
-      "lastTested": "2025-04-03",
+      "lastTested": "2025-07-15",
       "inherentRisk": "low",
       "expectedEvidenceIntervalDays": 120
     },
@@ -564,7 +564,7 @@
       "evidenceType": "Scan reports and SLA aging report",
       "owner": "Security Engineer",
       "frequency": "monthly",
-      "lastTested": "2025-10-23",
+      "lastTested": "2025-11-16",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 45
     },
@@ -650,7 +650,7 @@
       "evidenceType": "Pull request approval export and bypass log",
       "owner": "VP Engineering",
       "frequency": "continuous",
-      "lastTested": "2025-12-15",
+      "lastTested": "2025-12-26",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 14
     },
@@ -716,7 +716,7 @@
       "evidenceType": "Terraform PR history and drift reports",
       "owner": "Platform Engineering Lead",
       "frequency": "continuous",
-      "lastTested": "2025-12-15",
+      "lastTested": "2025-12-26",
       "inherentRisk": "medium",
       "expectedEvidenceIntervalDays": 14
     },
@@ -732,7 +732,7 @@
       "evidenceType": "BC/DR plan and test results",
       "owner": "VP Engineering",
       "frequency": "annual",
-      "lastTested": "2023-06-06",
+      "lastTested": "2024-05-22",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 380
     },
@@ -749,7 +749,7 @@
       "evidenceType": "Contract clause review and SOC 2 review memos",
       "owner": "Vendor Risk Manager",
       "frequency": "annual",
-      "lastTested": "2023-04-29",
+      "lastTested": "2024-05-08",
       "inherentRisk": "medium",
       "expectedEvidenceIntervalDays": 380
     },
@@ -815,7 +815,7 @@
       "evidenceType": "Reconciliation reports with reviewer sign-off",
       "owner": "Controller",
       "frequency": "daily",
-      "lastTested": "2025-12-31",
+      "lastTested": "2026-01-05",
       "inherentRisk": "high",
       "expectedEvidenceIntervalDays": 7
     },
@@ -848,7 +848,7 @@
       "evidenceType": "Statement review sign-off",
       "owner": "Controller",
       "frequency": "monthly",
-      "lastTested": "2025-11-05",
+      "lastTested": "2025-11-21",
       "inherentRisk": "medium",
       "expectedEvidenceIntervalDays": 45
     },
@@ -865,7 +865,7 @@
       "evidenceType": "Data inventory and retention schedule",
       "owner": "General Counsel",
       "frequency": "annual",
-      "lastTested": "2024-07-11",
+      "lastTested": "2024-10-27",
       "inherentRisk": "medium",
       "expectedEvidenceIntervalDays": 380
     },

@@ -502,7 +502,10 @@ def build_controls(rng: random.Random) -> list[dict]:
         if evidence == "current":
             age = int(interval * rng.uniform(0.15, 0.7))
         elif evidence == "stale":
-            age = int(interval * rng.uniform(1.4, 2.8))
+            # Past due, but not absurdly so: an annual control lands around
+            # 14-20 months old, which is what "we did it, just not this period"
+            # actually looks like.
+            age = int(interval * rng.uniform(1.15, 1.7))
         else:  # missing
             age = None
 
