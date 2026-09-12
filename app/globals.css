@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-canvas: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-line: #e3e7ed;
+  --color-ink: #101828;
+  --color-ink-muted: #5a6474;
+  --color-accent: #1a5f7a;
+  --color-accent-soft: #e8f1f5;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular figures everywhere numbers are compared column-to-column. */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: #cfe4ec;
+}
