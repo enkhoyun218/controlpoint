@@ -106,7 +106,7 @@ export default function CategoryCoverageChart({
             <LabelList
               dataKey="coverage"
               position="right"
-              formatter={(v: number) => `${v.toFixed(0)}%`}
+              formatter={(v) => `${Math.round(Number(v))}%`}
               style={{ fontSize: 11, fill: "#5a6474" }}
             />
           </Bar>

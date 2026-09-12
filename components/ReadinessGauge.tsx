@@ -17,8 +17,9 @@ function polar(value: number) {
 function arcPath(from: number, to: number) {
   const a = polar(from);
   const b = polar(to);
-  const large = to - from > 50 ? 1 : 0;
-  return `M ${a.x.toFixed(2)} ${a.y.toFixed(2)} A ${R} ${R} 0 ${large} 1 ${b.x.toFixed(2)} ${b.y.toFixed(2)}`;
+  // The gauge spans a half circle, so no sweep here can exceed 180 degrees and
+  // the large-arc flag is always 0.
+  return `M ${a.x.toFixed(2)} ${a.y.toFixed(2)} A ${R} ${R} 0 0 1 ${b.x.toFixed(2)} ${b.y.toFixed(2)}`;
 }
 
 export function readinessBand(value: number) {
