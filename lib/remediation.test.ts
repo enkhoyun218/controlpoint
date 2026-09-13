@@ -4,6 +4,7 @@ import { getControls, getCriteria } from "./data";
 import {
   estimateEffort,
   isGap,
+  midSentence,
   projectTopN,
   rankGaps,
 } from "./remediation";
@@ -67,6 +68,55 @@ describe("estimateEffort", () => {
     );
     expect(annual).toBe("medium");
     expect(continuous).toBe("high");
+  });
+});
+
+describe("midSentence", () => {
+  it("lowers an ordinary capitalized first word", () => {
+    expect(midSentence("Signed acknowledgement export")).toBe(
+      "signed acknowledgement export",
+    );
+  });
+
+  it("leaves an acronym alone", () => {
+    for (const name of [
+      "LMS completion report",
+      "SoD conflict matrix and review",
+      "BC/DR plan and test results",
+      "MDM fleet compliance report",
+      "JIT grant logs and privileged role inventory",
+      "IdP configuration export and MFA coverage report",
+      "TLS scan results and load balancer config",
+      "SIEM alert rules and sample alerts",
+    ]) {
+      expect(midSentence(name)).toBe(name);
+    }
+  });
+
+  it("leaves a product name alone", () => {
+    expect(midSentence("Terraform PR history and drift reports")).toBe(
+      "Terraform PR history and drift reports",
+    );
+  });
+
+  it("never touches acronyms after the first word", () => {
+    expect(midSentence("Contract clause review and SOC 2 review memos")).toBe(
+      "contract clause review and SOC 2 review memos",
+    );
+    expect(midSentence("Executed NDAs")).toBe("executed NDAs");
+    expect(
+      midSentence("Infrastructure changes made through version-controlled IaC"),
+    ).toBe("infrastructure changes made through version-controlled IaC");
+  });
+
+  it("handles a hyphenated first word", () => {
+    expect(midSentence("Self-assessment attestations")).toBe(
+      "self-assessment attestations",
+    );
+  });
+
+  it("survives an empty string", () => {
+    expect(midSentence("")).toBe("");
   });
 });
 
@@ -208,5 +258,37 @@ describe("the real dataset", () => {
 
   it("puts at least one high-risk item at the top of the plan", () => {
     expect(gaps.slice(0, 5).some((g) => g.inherentRisk === "high")).toBe(true);
+  });
+
+  it("never lowercases an acronym in a headline or an action", () => {
+    // "patch slas", "version-controlled iac", "the bc/dr plan" — all previously shipped.
+    const corrupted = /\b(soc 2|lms|sod|bc\/dr|mdm|jit|siem|idp|tls|sla|slas|iac|mfa|sso|ci\/cd|api|ir plan|terraform pr)\b/;
+    for (const gap of gaps) {
+      for (const text of [gap.title, gap.recommendedAction, gap.whyItMatters]) {
+        expect(text).not.toMatch(corrupted);
+      }
+    }
+  });
+
+  it("only claims a criterion is unaddressed when no other control covers it", () => {
+    const controls = getControls();
+    for (const gap of gaps.filter((g) => g.status === "not_implemented")) {
+      const siblings = controls.filter(
+        (c) =>
+          c.id !== gap.controlId &&
+          c.criteria.some((x) => gap.criteria.includes(x)),
+      );
+      if (siblings.length > 0) {
+        expect(gap.whyItMatters).not.toContain("Nothing addresses");
+        expect(gap.whyItMatters).toContain("other control");
+      } else {
+        expect(gap.whyItMatters).toContain("Nothing addresses");
+      }
+    }
+  });
+
+  it("still finds one genuinely unaddressed criterion — C1.2", () => {
+    const orphan = gaps.find((g) => g.criteria.includes("C1.2"));
+    expect(orphan?.whyItMatters).toContain("Nothing addresses C1.2");
   });
 });

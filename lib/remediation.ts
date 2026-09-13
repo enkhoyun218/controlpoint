@@ -39,6 +39,27 @@ export const EFFORT_ESTIMATE: Record<Effort, string> = {
   high: "A quarter or more",
 };
 
+/**
+ * Product names that survive a lowercase pass even though they look like
+ * ordinary capitalized words. Kept deliberately tiny — if this grows past a
+ * handful, the evidence names should carry their own casing instead.
+ */
+const PROPER_NOUNS = new Set(["Terraform"]);
+
+/**
+ * Control titles and evidence names are written in sentence case but get
+ * dropped into the middle of a sentence. Lowercasing the whole string destroys
+ * the acronyms these artefacts are actually named by — SOC 2, LMS, BC/DR, MDM,
+ * JIT, SIEM, IdP, IaC, SLA — which reads as carelessness to the one audience
+ * that would notice. So only the first word is lowered, and only when it is an
+ * ordinary capitalized word rather than an acronym or a product name.
+ */
+export function midSentence(text: string): string {
+  const first = text.split(" ")[0] ?? "";
+  const ordinary = /^[A-Z][a-z-]*$/.test(first) && !PROPER_NOUNS.has(first);
+  return ordinary ? text[0].toLowerCase() + text.slice(1) : text;
+}
+
 /** How to say "it ran on schedule" for each control frequency. */
 const CADENCE_ADVERB: Record<string, string> = {
   continuous: "continuously",
@@ -104,47 +125,59 @@ export function estimateEffort(control: Control): Effort {
 }
 
 function findingTitle(control: Control): string {
+  const title = midSentence(control.title);
   if (control.status === "not_implemented")
-    return `Control not in place — ${control.title.toLowerCase()}`;
-  if (control.status === "partial")
-    return `Partially implemented — ${control.title.toLowerCase()}`;
-  if (control.evidence === "missing")
-    return `No evidence retained — ${control.title.toLowerCase()}`;
-  return `Evidence will not support the period — ${control.title.toLowerCase()}`;
+    return `Control not in place — ${title}`;
+  if (control.status === "partial") return `Partially implemented — ${title}`;
+  if (control.evidence === "missing") return `No evidence retained — ${title}`;
+  return `Evidence will not support the period — ${title}`;
 }
 
-function whyItMatters(control: Control, intent: string): string {
+function whyItMatters(
+  control: Control,
+  intent: string,
+  /** Other controls mapped to any of the same criteria — 0 means the criterion really does rest on this one alone. */
+  siblings: number,
+): string {
   const risk = `Inherent risk is ${control.inherentRisk}`;
   const criteria = control.criteria.join(", ");
+  const one = control.criteria.length === 1;
 
   if (control.status === "not_implemented") {
-    return `Nothing addresses ${criteria} today${intent ? ` — ${intent.toLowerCase().replace(/\.$/, "")}` : ""}. ${risk}, and a criterion with no working control behind it can't be covered by testing something else. Expect this to land as a deficiency, not an exception.`;
+    // Only claim a criterion is unaddressed when no other control covers it.
+    // Saying "nothing addresses CC6.3" while three other controls map to it is
+    // the kind of overstatement that costs a report its credibility.
+    if (siblings === 0) {
+      return `Nothing addresses ${criteria} today${intent ? ` — ${midSentence(intent).replace(/\.$/, "")}` : ""}. ${risk}, and a criterion with no working control behind it can't be covered by testing something else. Expect this to land as a deficiency, not an exception.`;
+    }
+    return `This control is not in place, so ${criteria} ${one ? "rests" : "rest"} on the ${siblings} other control${siblings === 1 ? "" : "s"} mapped to ${one ? "it" : "them"}. ${risk}. Whether what remains is enough to meet the objective is the auditor's judgement rather than management's — this is where a design deficiency gets written.`;
   }
   if (control.status === "partial") {
-    return `The control exists but doesn't cover everything ${criteria} expects${intent ? ` — that ${intent.toLowerCase().replace(/\.$/, "")}` : ""}. ${risk}. Partial coverage means the auditor tests the full population and finds the part that was never in scope. That's an exception, not a pass.`;
+    return `The control exists but doesn't cover everything ${criteria} ${one ? "expects" : "expect"}${intent ? ` — that ${midSentence(intent).replace(/\.$/, "")}` : ""}. ${risk}. Partial coverage means the auditor tests the full population and finds the part that was never in scope. That's an exception, not a pass.`;
   }
   if (control.evidence === "missing") {
     return `The control seems to run, but nothing is kept to show it. ${risk}, and for ${criteria} an untestable control is treated as one that didn't operate — a Type II opinion rests on evidence across the period, not management's word.`;
   }
-  return `The control runs, but the evidence on hand — ${control.evidenceType.toLowerCase()} — predates the examination period. ${risk}. This is the most common Type II failure: the control is fine, the proof that it ran ${CADENCE_ADVERB[control.frequency] ?? "on schedule"} isn't.`;
+  return `The control runs, but the evidence on hand — ${midSentence(control.evidenceType)} — predates the examination period. ${risk}. This is the most common Type II failure: the control is fine, the proof that it ran ${CADENCE_ADVERB[control.frequency] ?? "on schedule"} isn't.`;
 }
 
 function recommendedAction(control: Control): string {
+  const one = control.criteria.length === 1;
   const cadence =
     control.frequency === "per-event"
       ? "each time it is triggered"
       : `on its ${control.frequency} cadence`;
 
   if (control.status === "not_implemented") {
-    return `Design and stand up the control, assign it to ${control.owner} on a documented ${control.frequency} cadence, and keep the ${control.evidenceType.toLowerCase()} from the first run onward. With no history, plan for a shortened observation window — or accept that this criterion won't be covered in the first Type II.`;
+    return `Design and stand up the control, assign it to ${control.owner} on a documented ${control.frequency} cadence, and keep the ${midSentence(control.evidenceType)} from the first run onward. With no history, plan for a shortened observation window — or accept that ${one ? "this criterion" : "these criteria"} won't be covered in the first Type II.`;
   }
   if (control.status === "partial") {
-    return `Extend the control to the full population it should cover, have ${control.owner} confirm the scope in writing, and produce the ${control.evidenceType.toLowerCase()} ${cadence} for every item in scope — not just the part already covered.`;
+    return `Extend the control to the full population it should cover, have ${control.owner} confirm the scope in writing, and produce the ${midSentence(control.evidenceType)} ${cadence} for every item in scope — not just the part already covered.`;
   }
   if (control.evidence === "missing") {
-    return `Start keeping the ${control.evidenceType.toLowerCase()} ${cadence}, with ${control.owner} as the named reviewer, and back-fill whatever you can reconstruct for the period. If the control is system-driven, automate the capture so evidence piles up without anyone remembering to save it.`;
+    return `Start keeping the ${midSentence(control.evidenceType)} ${cadence}, with ${control.owner} as the named reviewer, and back-fill whatever you can reconstruct for the period. If the control is system-driven, automate the capture so evidence piles up without anyone remembering to save it.`;
   }
-  return `From here on, re-perform the control and have ${control.owner} keep the ${control.evidenceType.toLowerCase()} ${cadence}. This is an evidence problem, not a design one — so the fix is retention discipline, not a new control.`;
+  return `From here on, re-perform the control and have ${control.owner} keep the ${midSentence(control.evidenceType)} ${cadence}. This is an evidence problem, not a design one — so the fix is retention discipline, not a new control.`;
 }
 
 /** Criterion whose coverage this control most influences — used as the headline criterion on the gap card. */
@@ -176,6 +209,11 @@ export function rankGaps(
 
   const raw = controls.filter(isGap).map((control) => {
     const effort = estimateEffort(control);
+    const siblings = controls.filter(
+      (other) =>
+        other.id !== control.id &&
+        other.criteria.some((c) => control.criteria.includes(c)),
+    ).length;
     const lift = projectReadiness(controls, criteria, [control.id]) - base;
     const rawPriority =
       (lift * RISK_WEIGHT[control.inherentRisk]) / EFFORT_COST[effort];
@@ -200,7 +238,7 @@ export function rankGaps(
         status: control.status,
         evidence: control.evidence,
         inherentRisk: control.inherentRisk,
-        whyItMatters: whyItMatters(control, intent),
+        whyItMatters: whyItMatters(control, intent, siblings),
         recommendedAction: recommendedAction(control),
         effort,
         effortEstimate: EFFORT_ESTIMATE[effort],
