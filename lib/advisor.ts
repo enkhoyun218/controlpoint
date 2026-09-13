@@ -58,6 +58,13 @@ export function buildAdvisorContext(): AdvisorSnapshot {
     .sort((a, b) => a.coverage - b.coverage)
     .slice(0, 8);
 
+  // Ranked here rather than left for the model to work out: asked for the
+  // weakest category it picked the runner-up out of an unsorted list of 11.
+  const categoriesWeakestFirst = [...readiness.byCategory].sort(
+    (a, b) => a.coverage - b.coverage,
+  );
+  const weakestCategory = categoriesWeakestFirst[0];
+
   const lines: string[] = [];
 
   lines.push(
@@ -70,8 +77,9 @@ export function buildAdvisorContext(): AdvisorSnapshot {
     `CONTROLS: ${readiness.counts.controls} total — ${readiness.counts.implemented} implemented, ${readiness.counts.partial} partial, ${readiness.counts.notImplemented} not implemented. Evidence: ${readiness.counts.evidenceCurrent} current, ${readiness.counts.evidenceStale} stale, ${readiness.counts.evidenceMissing} missing. Open high-risk controls: ${readiness.counts.openHighRisk}.`,
     `SCORING: control effectiveness = maturity (implemented 1.0 / partial 0.5 / none 0) x evidence factor (current 1.0 / stale 0.6 / missing 0.3). Criterion coverage = risk-weighted mean of its controls (high 3, medium 2, low 1). Overall = unweighted mean of criterion coverage.`,
     "",
-    "CATEGORY COVERAGE:",
-    ...readiness.byCategory.map(
+    `WEAKEST CATEGORY: ${weakestCategory.id} ${categoryName(weakestCategory.id)} at ${weakestCategory.coverage.toFixed(0)}%.`,
+    "CATEGORY COVERAGE (weakest first):",
+    ...categoriesWeakestFirst.map(
       (c) =>
         `  ${c.id} ${categoryName(c.id)}: ${c.coverage.toFixed(0)}% (${c.controlIds.length} controls)`,
     ),
