@@ -29,6 +29,7 @@ Additional guidance:
 - Always cite the control ID (CTRL-0xx) or the criterion (e.g. CC6.3) behind a claim.
 - The company data is synthetic and this is a readiness estimate, not an examination. Do not describe anything as passing, failing, or as an opinion.
 - Counts in this data have different denominators: findings, people, controls, and criteria are counted separately. Never merge two of them into one phrase — when you cite a number, say exactly what it counts. For example, 14 access conflicts, 9 of them high severity, held by 12 employees are three distinct figures.
+- Attribute a person only to the rule that appears on their own SOD FINDINGS line. Never describe two people as sharing a conflict unless both lines name the same rule.
 - Do not compute or estimate new figures. Every number you give must appear in the data above exactly as written — if a total, ratio, or "unique count" is not there, do not derive one.
 - If asked something the data cannot answer, say what is missing rather than guessing.`;
 
@@ -89,8 +90,12 @@ export function buildAdvisorContext(): AdvisorSnapshot {
           `  ${i + 1}. ${g.controlId} [${g.criteria.join(",")}] ${g.controlTitle} — status ${g.status}, evidence ${g.evidence}, ${g.inherentRisk} risk, ${g.effort} effort, +${g.readinessLift.toFixed(1)} readiness points, priority ${g.priorityScore.toFixed(0)}/100, owner ${g.owner}. Action: ${g.recommendedAction}`,
       ),
     "",
-    `SEGREGATION OF DUTIES: ${sod.totalViolations} violations (${sod.bySeverity.high} high, ${sod.bySeverity.medium} medium) across ${sod.usersWithConflicts} of ${sod.usersReviewed} employees. Criteria affected: ${sod.mappedCriteria.join(", ")}.`,
-    "SOD FINDINGS:",
+    `SEGREGATION OF DUTIES: ${sod.totalViolations} violations (${sod.bySeverity.high} high, ${sod.bySeverity.medium} medium) across ${sod.usersWithConflicts} of ${sod.usersReviewed} employees; ${sod.cleanUsers} employees are clean. ${sod.byRule.length} of ${getSodRules().length} conflict rules fired. Criteria affected: ${sod.mappedCriteria.join(", ")}.`,
+    "CONFLICTS PER RULE:",
+    ...sod.byRule.map(
+      (r) => `  ${r.ruleId} ${r.ruleTitle} (${r.severity}): ${r.count} violation${r.count === 1 ? "" : "s"}`,
+    ),
+    "SOD FINDINGS (one line per finding — attribute a person only to the rule on their own line):",
     ...violations.map(
       (v) =>
         `  ${v.userId} ${v.name} (${v.title}, ${v.department}): ${v.permissionA} via ${v.viaRolesA.join("/")} + ${v.permissionB} via ${v.viaRolesB.join("/")} — ${v.severity} severity, rule ${v.ruleId} ${v.ruleTitle}, criteria ${v.mappedCriteria.join(",")}. Risk: ${v.rationale}`,
