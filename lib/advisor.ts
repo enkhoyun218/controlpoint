@@ -29,6 +29,7 @@ Additional guidance:
 - Always cite the control ID (CTRL-0xx) or the criterion (e.g. CC6.3) behind a claim.
 - The company data is synthetic and this is a readiness estimate, not an examination. Do not describe anything as passing, failing, or as an opinion.
 - Counts in this data have different denominators: findings, people, controls, and criteria are counted separately. Never merge two of them into one phrase — when you cite a number, say exactly what it counts. For example, 14 access conflicts, 9 of them high severity, held by 12 employees are three distinct figures.
+- A criterion's meaning is the text beside it in the CRITERIA list. Never describe a criterion using the title of a control mapped to it — the control is one way the criterion is met, not what the criterion says.
 - Attribute a person only to the rule that appears on their own SOD FINDINGS line. Never describe two people as sharing a conflict unless both lines name the same rule.
 - Do not compute or estimate new figures. Every number you give must appear in the data above exactly as written — if a total, ratio, or "unique count" is not there, do not derive one.
 - If asked something the data cannot answer, say what is missing rather than guessing.`;
@@ -54,9 +55,11 @@ export function buildAdvisorContext(): AdvisorSnapshot {
     sodHighSeverityCount: sod.bySeverity.high,
   });
 
-  const weakestCriteria = [...readiness.byCriterion]
-    .sort((a, b) => a.coverage - b.coverage)
-    .slice(0, 8);
+  // All of them, not just the worst few: when a criterion was missing from this
+  // list the model labelled it with a control title instead of its own meaning.
+  const criteriaWeakestFirst = [...readiness.byCriterion].sort(
+    (a, b) => a.coverage - b.coverage,
+  );
 
   // Ranked here rather than left for the model to work out: asked for the
   // weakest category it picked the runner-up out of an unsorted list of 11.
@@ -84,8 +87,8 @@ export function buildAdvisorContext(): AdvisorSnapshot {
         `  ${c.id} ${categoryName(c.id)}: ${c.coverage.toFixed(0)}% (${c.controlIds.length} controls)`,
     ),
     "",
-    "WEAKEST CRITERIA:",
-    ...weakestCriteria.map(
+    `CRITERIA — all ${criteriaWeakestFirst.length} in scope, weakest first, as "id: coverage — what the criterion requires [controls mapped to it]":`,
+    ...criteriaWeakestFirst.map(
       (c) =>
         `  ${c.id}: ${c.coverage.toFixed(0)}% — ${c.intent} [controls: ${c.controlIds.join(", ") || "none"}]`,
     ),

@@ -24,6 +24,38 @@ describe("buildAdvisorContext", () => {
     expect(context).toContain("SEGREGATION OF DUTIES");
   });
 
+  it("labels every criterion with its own meaning, not a control title", () => {
+    // A criterion missing from the context got named after a control mapped to
+    // it — CC9.1 came back as "business continuity plan tested annually"
+    // instead of what the criterion actually requires.
+    for (const criterion of getCriteria()) {
+      expect(context).toContain(`${criterion.id}: `);
+      expect(context).toContain(criterion.intent);
+    }
+  });
+
+  it("orders criteria and categories weakest first, so ranking is read not derived", () => {
+    // Only the contiguous indented block belonging to this heading — later
+    // sections are indented too, and they carry no percentages.
+    const percentAfter = (marker: string) => {
+      const lines = context.slice(context.indexOf(marker)).split("\n").slice(1);
+      const values: number[] = [];
+      for (const line of lines) {
+        if (!line.startsWith("  ")) break;
+        values.push(Number(line.match(/(\d+)%/)?.[1]));
+      }
+      return values;
+    };
+
+    for (const marker of ["CRITERIA — all", "CATEGORY COVERAGE"]) {
+      const values = percentAfter(marker);
+      expect(values.length).toBeGreaterThan(1);
+      for (let i = 1; i < values.length; i += 1) {
+        expect(values[i]).toBeGreaterThanOrEqual(values[i - 1]);
+      }
+    }
+  });
+
   it("stays compact enough to stay cheap", () => {
     // Roughly four characters per token; this keeps the call well under
     // 10k input tokens.
