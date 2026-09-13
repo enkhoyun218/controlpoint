@@ -251,7 +251,6 @@ export function buildConflictGraph(violations: SodViolation[]): {
     const userId = `u:${v.userId}`;
     const existingUser = users.get(userId);
     if (existingUser) {
-      existingUser.degree += 1;
       existingUser.severity = worse(existingUser.severity, v.severity);
     } else {
       users.set(userId, {
@@ -259,7 +258,7 @@ export function buildConflictGraph(violations: SodViolation[]): {
         label: v.name,
         sublabel: v.title,
         kind: "user",
-        degree: 1,
+        degree: 0,
         severity: v.severity,
       });
     }
@@ -268,14 +267,13 @@ export function buildConflictGraph(violations: SodViolation[]): {
       const pid = `p:${permission}`;
       const existing = permissions.get(pid);
       if (existing) {
-        existing.degree += 1;
         existing.severity = worse(existing.severity, v.severity);
       } else {
         permissions.set(pid, {
           id: pid,
           label: permission,
           kind: "permission",
-          degree: 1,
+          degree: 0,
           severity: v.severity,
         });
       }
@@ -291,6 +289,16 @@ export function buildConflictGraph(violations: SodViolation[]): {
           ruleId: v.ruleId,
         });
     }
+  }
+
+  // Degree is counted from the deduplicated links, not from the violations,
+  // so the number on a node always equals the number of lines drawn to it.
+  // One person tripping two rules that share a permission is a single line.
+  for (const link of links.values()) {
+    const source = users.get(link.source);
+    if (source) source.degree += 1;
+    const target = permissions.get(link.target);
+    if (target) target.degree += 1;
   }
 
   return {

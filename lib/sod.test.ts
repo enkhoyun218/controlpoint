@@ -173,6 +173,39 @@ describe("buildConflictGraph", () => {
     expect(clean.nodes).toEqual([]);
     expect(clean.links).toEqual([]);
   });
+
+  it("counts one line, not two, when a user trips two rules sharing a permission", () => {
+    // Both rules name approve_payment, so this user reaches it once.
+    const user: User = {
+      ...CONFLICTED,
+      roles: ["Vendor_Admin", "AP_Approver", "AP_Clerk"],
+    };
+    const g = buildConflictGraph(detectViolations([user], ROLES, RULES));
+    const shared = g.nodes.find((n) => n.label === "approve_payment");
+    expect(shared?.degree).toBe(1);
+    expect(
+      g.links.filter((l) => l.target === "p:approve_payment"),
+    ).toHaveLength(1);
+  });
+});
+
+describe("graph degree", () => {
+  it("equals the number of lines drawn to each node, across the real dataset", () => {
+    // The graph labels permission nodes with their degree, so a degree that
+    // counts violations rather than links would print a number the picture
+    // contradicts.
+    const graph = buildConflictGraph(
+      detectViolations(getUsers(), getRoles(), getSodRules()),
+    );
+    const drawn = new Map<string, number>();
+    for (const link of graph.links) {
+      drawn.set(link.source, (drawn.get(link.source) ?? 0) + 1);
+      drawn.set(link.target, (drawn.get(link.target) ?? 0) + 1);
+    }
+    for (const node of graph.nodes) {
+      expect(node.degree).toBe(drawn.get(node.id) ?? 0);
+    }
+  });
 });
 
 describe("the real dataset", () => {
