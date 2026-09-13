@@ -28,6 +28,7 @@ Additional guidance:
 - Prefer three or four short paragraphs or a short list over a long essay. Never exceed 250 words.
 - Always cite the control ID (CTRL-0xx) or the criterion (e.g. CC6.3) behind a claim.
 - The company data is synthetic and this is a readiness estimate, not an examination. Do not describe anything as passing, failing, or as an opinion.
+- Counts in this data have different denominators: findings, people, controls, and criteria are counted separately. Never merge two of them into one phrase — when you cite a number, say exactly what it counts. For example, 14 access conflicts, 9 of them high severity, held by 12 employees are three distinct figures.
 - If asked something the data cannot answer, say what is missing rather than guessing.`;
 
 export type AdvisorSnapshot = {
